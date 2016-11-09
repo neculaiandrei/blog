@@ -1,0 +1,44 @@
+@import 'reset';
+@import 'globals';
+@import 'forms';
+@import 'buttons';
+@import 'header';
+@import 'posts';
+@import 'socialIcons';
+@import 'sidebar';
+@import 'table';
+
+body {
+  margin: 0 $desktopHorizontalMargin;
+  background: $white;
+  font-family: $bodyFont;
+  transition: all $animationDuration $animationType;
+
+  @media only screen and (max-width: $mobileBreakpoint) {
+    margin: 0 $mobileHorizontalMargin;
+  }
+}
+
+.blog-content {
+  margin-top: calc(1.4 * #{$desktopHeaderHeight});
+  padding: 0 10%;
+  text-indent: 1em;
+  text-align: justify;
+  transition: all $animationDuration $animationType;
+
+  @media only screen and (max-width: $mobileBreakpoint) {
+    margin-top: calc(1.4 * #{$mobileHeaderHeight});
+  }
+
+  @media only screen and (min-width: $mobileBreakpoint + 1) and (max-width: 1280px) {
+    padding: 0; 
+  }
+}
+
+.blog-admin-content {
+  margin-top: calc(1.4 * #{$desktopHeaderHeight});
+
+  @media only screen and (max-width: $mobileBreakpoint) {
+    margin-top: calc(1.4 * #{$mobileHeaderHeight});
+  }
+}

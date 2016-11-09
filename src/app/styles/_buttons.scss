@@ -1,0 +1,44 @@
+.blog-icon-button {
+  background: $grey;
+  border: 1px solid $grey;
+  color: $white;
+  font-size: inherit;
+  font-family: inherit;
+  cursor:pointer;
+  overflow: hidden;
+  outline:none;
+
+  &--o {
+    background: transparent;
+    border: none;
+    color: $grey;
+  }
+
+  &--orange {
+    background: $orange;
+    border: 1px solid $white;
+    color: $white;
+  }
+
+  &--black-o {
+    background: transparent;
+    border: none;
+    color: $black;
+  }
+
+  &__separator {
+    border-left: 1px solid $white;
+
+    &--o {
+      border-left: 1px solid $orange;
+    }
+
+    &--orange {
+      border-left: 1px solid $white;
+    }
+    
+    &--black-o {
+      border-left: 1px solid $black;
+    }
+  }
+}

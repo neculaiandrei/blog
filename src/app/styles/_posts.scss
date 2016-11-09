@@ -1,0 +1,32 @@
+@import 'globals';
+
+.blog-post {
+  padding: 40px 0;
+  text-indent: 0;
+
+  &__date {
+    color: $grey;
+    font-size: $h5;
+  }
+
+  &__title {
+    margin-top: 5px;
+    margin-bottom: 25px;
+    font-family: $headingFont;
+  }
+  
+  &__content {
+    margin-bottom: 40px;
+
+    p {
+      text-indent: 2em;
+      line-height: 1.5em;
+    }
+  }
+
+  &__buttons {
+    i {
+      margin-right: 10px;
+    }
+  }
+}

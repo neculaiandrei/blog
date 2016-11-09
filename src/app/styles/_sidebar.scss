@@ -1,0 +1,17 @@
+@import 'globals';
+
+.blog-sidebar {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  color: $grey;
+
+  i {
+    display: block;
+    margin: 30px 10px;
+  }
+
+  @media only screen and (max-width: $mobileBreakpoint) {
+    display: none;
+  }
+}
