@@ -30,10 +30,6 @@
     line-height: $h5;
   }
 
-  &__menu {
-    float: right;
-  }
-
   @media only screen and (max-width: $mobileBreakpoint) {
     height: $mobileHeaderHeight;
     width: calc(100% - (2 * #{$mobileHorizontalMargin}));

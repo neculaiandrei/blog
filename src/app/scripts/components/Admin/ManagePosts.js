@@ -14,6 +14,9 @@ class ManagePosts extends React.Component {
   }
 
   handleDelete(id) {
+    const index = PostData.findIndex(post => post.id === id);
+    PostData.splice(index, 1);
+
     this.setState({
       posts: [...this.state.posts.filter(post => post.id !== id)],
     });

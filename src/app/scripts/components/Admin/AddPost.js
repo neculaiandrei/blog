@@ -31,9 +31,9 @@ class AddPost extends React.Component {
   }
 
   handleSave() {
-    const newId = PostData.length + 1;
+    const newId = Math.floor((Math.random() * 10000) + 1);
     const newPost = Object.assign({}, this.state.post);
-    newPost.id = newId;
+    newPost.id = `${newId}`;
     newPost.date = new Date().toDateString();
     PostData.push(newPost);
     browserHistory.push('/admin/posts');

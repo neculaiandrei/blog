@@ -36,8 +36,9 @@ const bundler = browserify({
 }).plugin(watchify, { ignoreWatch: ['**/node_modules/**'] })
   .transform('babelify', { presets: ['es2015', 'react'] });
 
-const bundle = () =>
-  bundler
+const bundle = () => {
+  util.log(util.colors.blue('Started js'));
+  return bundler
     .bundle()
     .on('error', util.log)
     .pipe(source(config.js.entry))
@@ -48,6 +49,7 @@ const bundle = () =>
     .on('end', () => {
       util.log(util.colors.blue('Finished js'));
     });
+};
 
 gulp.task('compile-js', bundle);
 

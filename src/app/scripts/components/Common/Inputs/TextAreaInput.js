@@ -1,6 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import Markdown from 'react-markdown';
+import ExpandCollapseButton from '../Buttons/ExpandCollapseButton';
 
 class TextAreaInput extends React.Component {
   constructor(props) {
@@ -8,10 +9,12 @@ class TextAreaInput extends React.Component {
 
     this.state = {
       active: false,
+      previewExpanded: false,
     };
 
     this.handleFocus = this.handleFocus.bind(this);
     this.handleBlur = this.handleBlur.bind(this);
+    this.handleTogglePreview = this.handleTogglePreview.bind(this);
   }
 
   handleFocus() {
@@ -22,6 +25,10 @@ class TextAreaInput extends React.Component {
     this.setState({ active: false });
   }
 
+  handleTogglePreview() {
+    this.setState({ previewExpanded: !this.state.previewExpanded });
+  }
+
   render() {
     const textInputClass = classNames(
       'blog-textarea-input',
@@ -29,10 +36,16 @@ class TextAreaInput extends React.Component {
         'blog-textarea-input--active': this.state.active,
       });
 
+    const togglePreviewButtonText = this.state.previewExpanded ? 'Hide Preview' : 'Show Preview';
+    const preview = this.state.previewExpanded ? (
+      <Markdown
+        className="blog-textarea-input__preview"
+        source={this.props.text}
+      />) : undefined;
+
     return (
       <div className={textInputClass}>
         <textarea
-          active={this.state.active}
           name={this.props.name}
           value={this.props.text}
           placeholder={this.props.placeholder}
@@ -41,10 +54,15 @@ class TextAreaInput extends React.Component {
           onFocus={this.handleFocus}
           onBlur={this.handleBlur}
         />
-        <Markdown
-          className="blog-textarea-input__preview"
-          source={this.props.text}
-        />
+        <div className="blog-textarea-input__toggle-preview">
+          <ExpandCollapseButton
+            expanded={this.state.previewExpanded}
+            onClick={this.handleTogglePreview}
+          >
+            {togglePreviewButtonText}
+          </ExpandCollapseButton>
+        </div>
+        {preview}
       </div>
     );
   }
