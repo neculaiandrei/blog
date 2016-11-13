@@ -1,8 +1,10 @@
 import React from 'react';
 import { browserHistory } from 'react-router';
-import PostData from './../../data';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 import PostForm from './PostForm/PostForm';
 import TextIconButton from '../Common/Buttons/TextIconButton';
+import postActions from '../../actions/postActions';
 
 class AddPost extends React.Component {
   constructor(props) {
@@ -35,13 +37,15 @@ class AddPost extends React.Component {
     const newPost = Object.assign({}, this.state.post);
     newPost.id = `${newId}`;
     newPost.date = new Date().toDateString();
-    PostData.push(newPost);
     browserHistory.push('/admin/posts');
+
+    this.props.actions.createPost(newPost);
   }
 
   render() {
     return (
       <div>
+        <h1>Add Post</h1>
         <PostForm
           post={this.state.post}
           onChange={this.handleChange}
@@ -59,9 +63,17 @@ class AddPost extends React.Component {
 }
 
 AddPost.propTypes = {
-  params: React.PropTypes.shape({
-    id: React.PropTypes.string,
-  }),
+  actions: React.PropTypes.shape({
+    createPost: React.PropTypes.func,
+  }).isRequired,
 };
 
-export default AddPost;
+const mapStateToProps = state => ({
+  posts: state.posts,
+});
+
+const mapDispatchToProps = dispatch => ({
+  actions: bindActionCreators(postActions, dispatch),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(AddPost);

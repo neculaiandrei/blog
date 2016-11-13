@@ -1,5 +1,5 @@
 import React from 'react';
-import PostData from './../../data';
+import { connect } from 'react-redux';
 import SummaryPost from './SummaryPost';
 import SearchBar from '../Common/SearchBar';
 
@@ -11,8 +11,7 @@ class PostList extends React.Component {
       searchText: '',
     };
 
-    this.posts = [...PostData];
-    this.filteredPosts = [...this.posts];
+    this.filteredPosts = [...this.props.posts];
     this.handleSearch = this.handleSearch.bind(this);
   }
 
@@ -23,7 +22,7 @@ class PostList extends React.Component {
   }
 
   render() {
-    this.filteredPosts = this.posts
+    this.filteredPosts = this.props.posts
                             .filter(post => this.state.searchText === undefined
                             || post.title.indexOf(this.state.searchText) !== -1);
 
@@ -47,6 +46,14 @@ class PostList extends React.Component {
       </div>
     );
   }
+}
+
+PostList.propTypes = {
+  posts: React.PropTypes.arrayOf(React.PropTypes.object),
 };
 
-export default PostList;
+const mapStateToProps = state => ({
+  posts: state.posts,
+});
+
+export default connect(mapStateToProps)(PostList);

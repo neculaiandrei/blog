@@ -1,33 +1,46 @@
 import React from 'react';
 import Markdown from 'react-markdown';
+import { connect } from 'react-redux';
 import Post from './Post';
-import PostData from './../../data';
 
-class FullPost extends React.Component {
-  constructor(props) {
-    super();
-    this.post = PostData.find(p => p.id === props.params.id);
-  }
-
-  render() {
-    return (
-      <Post
-        date={this.post.date}
-        title={this.post.title}
-        link={`/post/${this.post.id}`}
-      >
-        <div className="blog-post__content">
-          <Markdown source={this.post.content} />
-        </div>
-      </Post>
-    );
-  }
-}
+const FullPost = props => (
+  <Post
+    date={props.post.date}
+    title={props.post.title}
+    link={`/post/${props.post.id}`}
+  >
+    <div className="blog-post__content">
+      <Markdown source={props.post.content} />
+    </div>
+  </Post>
+);
 
 FullPost.propTypes = {
-  params: React.PropTypes.shape({
+  post: React.PropTypes.shape({
     id: React.PropTypes.string,
+    title: React.PropTypes.string,
+    date: React.PropTypes.string,
+    content: React.PropTypes.string,
   }),
 };
 
-export default FullPost;
+const getPostById = (posts, id) => {
+  const post = posts.filter(p => p.id === id);
+  if (post) {
+    return post[0];
+  }
+
+  return null;
+};
+
+const mapStateToProps = (state, ownProps) => {
+  const postId = ownProps.params.id;
+  const post = getPostById(state.posts, postId);
+
+  return {
+    post,
+  };
+};
+
+export default connect(mapStateToProps)(FullPost);
+

@@ -1,25 +1,19 @@
 import React from 'react';
-import PostData from '../../data';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 import ExtendedPostTable from './PostTable/ExtendedPostTable';
+import postActions from '../../actions/postActions';
 
 class ManagePosts extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      posts: [...PostData],
-    };
-
     this.handleDelete = this.handleDelete.bind(this);
   }
 
   handleDelete(id) {
-    const index = PostData.findIndex(post => post.id === id);
-    PostData.splice(index, 1);
-
-    this.setState({
-      posts: [...this.state.posts.filter(post => post.id !== id)],
-    });
+    const existingPost = this.props.posts.find(post => post.id === id);
+    this.props.actions.deletePost(existingPost);
   }
 
   render() {
@@ -27,7 +21,7 @@ class ManagePosts extends React.Component {
       <div>
         <h2>Posts</h2>
         <ExtendedPostTable
-          posts={this.state.posts}
+          posts={this.props.posts}
           onDelete={this.handleDelete}
         />
       </div>
@@ -35,4 +29,19 @@ class ManagePosts extends React.Component {
   }
 }
 
-export default ManagePosts;
+ManagePosts.propTypes = {
+  posts: React.PropTypes.arrayOf(React.PropTypes.object),
+  actions: React.PropTypes.shape({
+    deletePost: React.PropTypes.func,
+  }),
+};
+
+const mapStateToProps = state => ({
+  posts: state.posts,
+});
+
+const mapDispatchToProps = dispatch => ({
+  actions: bindActionCreators(postActions, dispatch),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(ManagePosts);

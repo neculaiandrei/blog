@@ -7,9 +7,6 @@ import TextIconButton from '../../Common/Buttons/TextIconButton';
 
 const PostForm = props => (
   <div className="blog-post-form">
-    <div className="blog-post-form__header">
-      Edit Post
-    </div>
     <PostFormRow>
       <Label name="title">Title</Label>
       <TextInput

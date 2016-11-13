@@ -1,16 +1,16 @@
 import React from 'react';
 import { browserHistory } from 'react-router';
-import PostData from './../../data';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 import PostForm from './PostForm/PostForm';
 import TextIconButton from '../Common/Buttons/TextIconButton';
+import postActions from '../../actions/postActions';
 
 class EditPost extends React.Component {
   constructor(props) {
     super(props);
-
-    const post = PostData.find(p => p.id === props.params.id);
     this.state = {
-      post: Object.assign({}, post),
+      post: Object.assign({}, this.props.post),
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -29,14 +29,14 @@ class EditPost extends React.Component {
   }
 
   handleSave() {
-    const existingPostIndex = PostData.findIndex(p => p.id === this.state.post.id);
-    PostData.splice(existingPostIndex, 1, this.state.post);
+    this.props.actions.editPost(this.state.post);
     browserHistory.push('/admin/posts');
   }
 
   render() {
     return (
       <div>
+        <h1>Edit Post</h1>
         <PostForm
           post={this.state.post}
           onChange={this.handleChange}
@@ -54,9 +54,21 @@ class EditPost extends React.Component {
 }
 
 EditPost.propTypes = {
-  params: React.PropTypes.shape({
-    id: React.PropTypes.string,
+  actions: React.PropTypes.shape({
+    editPost: React.PropTypes.func,
   }),
+  post: React.PropTypes.shape({}),
 };
 
-export default EditPost;
+const mapStateToProps = (state, ownProps) => {
+  const existingPost = state.posts.find(post => post.id === ownProps.params.id);
+  return {
+    post: existingPost,
+  };
+};
+
+const mapDispatchToProps = dispatch => ({
+  actions: bindActionCreators(postActions, dispatch),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(EditPost);
