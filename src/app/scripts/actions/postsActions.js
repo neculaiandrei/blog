@@ -1,10 +1,10 @@
 import * as type from './actionTypes';
 import postApi from '../../../api/mockPostApi';
 
-const postActions = {
+const postsActions = {
   createPost: post => dispatch => postApi.save(post)
     .then((savedPost) => {
-      dispatch(postActions.createPostSuccess(savedPost));
+      dispatch(postsActions.createPostSuccess(savedPost));
     }).catch((error) => {
       throw error;
     }),
@@ -12,11 +12,12 @@ const postActions = {
   createPostSuccess: post => ({
     type: type.CREATE_POST_SUCCESS,
     post,
+    loading: false,
   }),
 
   editPost: post => dispatch => postApi.save(post)
     .then((savedPost) => {
-      dispatch(postActions.editPostSuccess(savedPost));
+      dispatch(postsActions.editPostSuccess(savedPost));
     }).catch((error) => {
       throw error;
     }),
@@ -24,11 +25,12 @@ const postActions = {
   editPostSuccess: post => ({
     type: type.EDIT_POST_SUCCESS,
     post,
+    loading: false,
   }),
 
   deletePost: post => dispatch => postApi.delete(post.id)
     .then(() => {
-      dispatch(postActions.deletePostSuccess(post));
+      dispatch(postsActions.deletePostSuccess(post));
     }).catch((error) => {
       throw error;
     }),
@@ -36,11 +38,12 @@ const postActions = {
   deletePostSuccess: post => ({
     type: type.DELETE_POST_SUCCESS,
     post,
+    loading: false,
   }),
 
   loadPosts: () => dispatch => postApi.getAll()
     .then((posts) => {
-      dispatch(postActions.loadPostsSuccess(posts));
+      dispatch(postsActions.loadPostsSuccess(posts));
     }).catch((error) => {
       throw error;
     }),
@@ -48,7 +51,8 @@ const postActions = {
   loadPostsSuccess: posts => ({
     type: type.LOAD_POSTS_SUCCESS,
     posts,
+    loading: false,
   }),
 };
 
-export default postActions;
+export default postsActions;

@@ -1,7 +1,7 @@
 import InitialState from './initialState';
 import * as type from '../actions/actionTypes';
 
-export default function postReducer(state = InitialState.posts, action) {
+export default function postsReducer(state = InitialState.posts, action) {
   switch (action.type) {
     case type.CREATE_POST_SUCCESS:
       return [...state, Object.assign({}, action.post)];

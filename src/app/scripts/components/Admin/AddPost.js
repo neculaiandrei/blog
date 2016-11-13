@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import PostForm from './PostForm/PostForm';
 import TextIconButton from '../Common/Buttons/TextIconButton';
-import postActions from '../../actions/postActions';
+import postsActions from '../../actions/postsActions';
 
 class AddPost extends React.Component {
   constructor(props) {
@@ -68,7 +68,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  actions: bindActionCreators(postActions, dispatch),
+  actions: bindActionCreators(postsActions, dispatch),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(AddPost);

@@ -2,7 +2,7 @@ import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import ExtendedPostTable from './PostTable/ExtendedPostTable';
-import postActions from '../../actions/postActions';
+import postsActions from '../../actions/postsActions';
 
 class ManagePosts extends React.Component {
   constructor(props) {
@@ -41,7 +41,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  actions: bindActionCreators(postActions, dispatch),
+  actions: bindActionCreators(postsActions, dispatch),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ManagePosts);
