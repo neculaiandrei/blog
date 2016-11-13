@@ -1,33 +1,24 @@
 import React from 'react';
 
-class LoadingContainer extends React.Component {
-  constructor() {
-    super();
+const LoadingContainer = (props) => {
+  let content;
 
-    this.state = {
-      loading: false,
-    };
+  if (props.loading) {
+    content = 'Loading...';
+  } else {
+    content = props.children;
   }
 
-  render() {
-    let content;
-
-    if (this.state.loading) {
-      content = this.props.children;
-    } else {
-      content = 'Loading...';
-    }
-
-    return (
-      <div>
-        {content}
-      </div>
-    );
-  }
-}
+  return (
+    <div>
+      {content}
+    </div>
+  );
+};
 
 LoadingContainer.propTypes = {
   children: React.PropTypes.node,
+  loading: React.PropTypes.bool,
 };
 
 export default LoadingContainer;
