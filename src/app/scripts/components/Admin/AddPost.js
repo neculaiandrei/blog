@@ -33,13 +33,8 @@ class AddPost extends React.Component {
   }
 
   handleSave() {
-    const newId = Math.floor((Math.random() * 10000) + 1);
-    const newPost = Object.assign({}, this.state.post);
-    newPost.id = `${newId}`;
-    newPost.date = new Date().toDateString();
-    browserHistory.push('/admin/posts');
-
-    this.props.actions.createPost(newPost);
+    this.props.actions.createPost(this.state.post)
+      .then(() => browserHistory.push('/admin/posts'));
   }
 
   render() {

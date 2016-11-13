@@ -26,11 +26,16 @@ FullPost.propTypes = {
 
 const getPostById = (posts, id) => {
   const post = posts.filter(p => p.id === id);
-  if (post) {
+  if (post.length > 0) {
     return post[0];
   }
 
-  return null;
+  return {
+    id: '',
+    title: '',
+    date: '',
+    content: '',
+  };
 };
 
 const mapStateToProps = (state, ownProps) => {

@@ -5,27 +5,7 @@ const posts = [
     id: '1',
     date: '18 Septembrie 2016',
     title: 'Praesent viverra',
-    content: `Paragraphs are separated by a blank line.
-
-    2nd paragraph. *Italic*, **bold**, and \`monospace\`. Itemized lists
-    look like:
-
-      * this one
-      * that one
-      * the other one
-
-    Note that --- not considering the asterisk --- the actual text
-    content starts at 4-columns in.
-
-    > Block quotes are
-    > written like so.
-    >
-    > They can span multiple paragraphs,
-    > if you like.
-
-    Use 3 dashes for an em-dash. Use 2 dashes for ranges (ex., "it's all
-    in chapters 12--14"). Three dots ... will be converted to an ellipsis.
-    Unicode is supported. ☺`,
+    content: 'Paragraphs are separated by a blank line.',
   },
   {
     id: '2',
@@ -50,7 +30,7 @@ const posts = [
 const generateId = () => Math.floor((Math.random() * 10000) + 1);
 
 class PostApi {
-  static getAlls() {
+  static getAll() {
     return new Promise((resolve) => {
       setTimeout(() => {
         resolve(Object.assign([], posts));
@@ -68,7 +48,7 @@ class PostApi {
 
         if (post.id) {
           const existingPostIndex = posts.findIndex(a => a.id === post.id);
-          post.splice(existingPostIndex, 1, post);
+          posts.splice(existingPostIndex, 1, post);
         } else {
           post.id = generateId();
           posts.push(post);

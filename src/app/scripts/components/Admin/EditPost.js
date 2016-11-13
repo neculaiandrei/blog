@@ -29,8 +29,8 @@ class EditPost extends React.Component {
   }
 
   handleSave() {
-    this.props.actions.editPost(this.state.post);
-    browserHistory.push('/admin/posts');
+    this.props.actions.editPost(this.state.post)
+      .then(() => browserHistory.push('/admin/posts'));
   }
 
   render() {
@@ -62,6 +62,7 @@ EditPost.propTypes = {
 
 const mapStateToProps = (state, ownProps) => {
   const existingPost = state.posts.find(post => post.id === ownProps.params.id);
+
   return {
     post: existingPost,
   };
