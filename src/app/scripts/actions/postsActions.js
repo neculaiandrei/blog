@@ -12,7 +12,6 @@ const postsActions = {
   createPostSuccess: post => ({
     type: type.CREATE_POST_SUCCESS,
     post,
-    loading: false,
   }),
 
   editPost: post => dispatch => postApi.save(post)
@@ -25,7 +24,6 @@ const postsActions = {
   editPostSuccess: post => ({
     type: type.EDIT_POST_SUCCESS,
     post,
-    loading: false,
   }),
 
   deletePost: post => dispatch => postApi.delete(post.id)
@@ -38,7 +36,6 @@ const postsActions = {
   deletePostSuccess: post => ({
     type: type.DELETE_POST_SUCCESS,
     post,
-    loading: false,
   }),
 
   loadPosts: () => dispatch => postApi.getAll()
@@ -51,7 +48,6 @@ const postsActions = {
   loadPostsSuccess: posts => ({
     type: type.LOAD_POSTS_SUCCESS,
     posts,
-    loading: false,
   }),
 };
 
