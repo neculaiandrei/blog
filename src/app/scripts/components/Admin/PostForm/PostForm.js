@@ -3,7 +3,7 @@ import PostFormRow from './PostFormRow';
 import TextInput from '../../Common/Inputs/TextInput';
 import TextAreaInput from '../../Common/Inputs/TextAreaInput';
 import Label from '../../Common/Inputs/Label';
-import TextIconButton from '../../Common/Buttons/TextIconButton';
+import AsyncSaveButton from '../../Common/Buttons/AsyncSaveButton';
 
 const PostForm = props => (
   <div className="blog-post-form">
@@ -29,12 +29,10 @@ const PostForm = props => (
       />
     </PostFormRow>
     <PostFormRow>
-      <TextIconButton
-        iconClassName="fa fa-floppy-o"
-        onClick={props.onSave}
-      >
-        Save
-      </TextIconButton>
+      <AsyncSaveButton
+        pending={props.saving}
+        onSave={props.onSave}
+      />
     </PostFormRow>
   </div>
 );
@@ -46,6 +44,7 @@ PostForm.propTypes = {
   }).isRequired,
   onChange: React.PropTypes.func.isRequired,
   onSave: React.PropTypes.func.isRequired,
+  saving: React.PropTypes.bool,
 };
 
 export default PostForm;

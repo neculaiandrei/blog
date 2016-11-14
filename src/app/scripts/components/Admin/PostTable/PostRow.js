@@ -1,16 +1,23 @@
 import React from 'react';
 import IconLink from '../../Common/IconLink';
-import IconButton from '../../Common/Buttons/IconButton';
+import AsyncIconButton from '../../Common/Buttons/AsyncIconButton';
 
 class PostRow extends React.Component {
   constructor(props) {
     super(props);
 
+    this.state = {
+      deleting: false,
+    };
+
     this.handleDelete = this.handleDelete.bind(this);
   }
 
   handleDelete() {
-    this.props.onDelete(this.props.post.id);
+    this.setState({ deleting: true });
+    this.props.onDelete(this.props.post.id).then(() => {
+      this.setState({ deleting: false });
+    });
   }
 
   render() {
@@ -26,10 +33,11 @@ class PostRow extends React.Component {
             isExternal={false}
           />
           &nbsp;&nbsp;&nbsp;
-          <IconButton
+          <AsyncIconButton
             className="blog-icon-button--black-o"
             iconClassName="fa fa-trash-o"
             onClick={this.handleDelete}
+            pending={this.state.deleting}
           />
         </td>
       </tr>

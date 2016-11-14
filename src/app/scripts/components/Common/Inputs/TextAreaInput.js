@@ -36,7 +36,6 @@ class TextAreaInput extends React.Component {
         'blog-textarea-input--active': this.state.active,
       });
 
-    const togglePreviewButtonText = this.state.previewExpanded ? 'Hide Preview' : 'Show Preview';
     const preview = this.state.previewExpanded ? (
       <Markdown
         className="blog-textarea-input__preview"
@@ -59,7 +58,7 @@ class TextAreaInput extends React.Component {
             expanded={this.state.previewExpanded}
             onClick={this.handleTogglePreview}
           >
-            {togglePreviewButtonText}
+            {this.state.previewExpanded ? 'Hide Preview' : 'Show Preview'}
           </ExpandCollapseButton>
         </div>
         {preview}

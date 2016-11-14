@@ -5,6 +5,7 @@ const TextIconButton = props => (
   <IconButton
     className={props.className}
     iconClassName={props.iconClassName}
+    disabled={props.disabled}
     onClick={props.onClick}
   >
     <span>
@@ -19,6 +20,7 @@ const TextIconButton = props => (
 TextIconButton.propTypes = {
   className: React.PropTypes.string,
   iconClassName: React.PropTypes.string,
+  disabled: React.PropTypes.bool,
   onClick: React.PropTypes.func,
   children: React.PropTypes.node,
 };

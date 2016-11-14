@@ -15,6 +15,7 @@ class AddPost extends React.Component {
         title: '',
         content: '',
       },
+      saving: false,
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -33,6 +34,7 @@ class AddPost extends React.Component {
   }
 
   handleSave() {
+    this.setState({ saving: true });
     this.props.actions.createPost(this.state.post)
       .then(() => browserHistory.push('/admin/posts'));
   }
@@ -43,6 +45,7 @@ class AddPost extends React.Component {
         <h1>Add Post</h1>
         <PostForm
           post={this.state.post}
+          saving={this.state.saving}
           onChange={this.handleChange}
           onSave={this.handleSave}
         />

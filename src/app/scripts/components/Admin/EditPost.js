@@ -11,6 +11,7 @@ class EditPost extends React.Component {
     super(props);
     this.state = {
       post: Object.assign({}, this.props.post),
+      saving: false,
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -29,6 +30,7 @@ class EditPost extends React.Component {
   }
 
   handleSave() {
+    this.setState({ saving: true });
     this.props.actions.editPost(this.state.post)
       .then(() => browserHistory.push('/admin/posts'));
   }
@@ -39,6 +41,7 @@ class EditPost extends React.Component {
         <h1>Edit Post</h1>
         <PostForm
           post={this.state.post}
+          saving={this.state.saving}
           onChange={this.handleChange}
           onSave={this.handleSave}
         />
