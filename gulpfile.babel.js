@@ -10,6 +10,7 @@ import connect from 'gulp-connect';
 import runSequence from 'run-sequence';
 import util from 'gulp-util';
 import history from 'connect-history-api-fallback';
+import nodemon from 'gulp-nodemon';
 
 const config = {
   src: './src/app',
@@ -118,5 +119,20 @@ gulp.task('default', (done) => {
   runSequence('build', 'watch', () => {
     done();
     util.log(util.colors.blue('Finished'));
+  });
+});
+
+gulp.task('server', () => {
+  nodemon({
+    script: './src/api/app.js',
+    exec: 'node --debug',
+    ext: 'js',
+    env: {
+      port: 11001,
+    },
+    ignore: ['./node_modules/**'],
+  })
+  .on('restart', () => {
+    util.log('Restarting server...');
   });
 });
