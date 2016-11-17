@@ -1,5 +1,5 @@
 import * as type from './actionTypes';
-import postApi from '../../../api/mockPostApi';
+import postApi from '../../../mockPostApi';
 
 const postsActions = {
   createPost: post => dispatch => postApi.save(post)

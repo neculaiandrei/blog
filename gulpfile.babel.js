@@ -14,7 +14,7 @@ import nodemon from 'gulp-nodemon';
 
 const config = {
   src: './src/app',
-  dist: './dist',
+  dist: './src/public',
   js: {
     entry: 'main.js',
     folder: '/scripts/',
@@ -94,19 +94,18 @@ gulp.task('watch-html', () => {
   });
 });
 
-gulp.task('server', () =>
-  connect.server({
-    root: config.dist,
-    port: config.port,
-    middleware: () => [history({})],
-  }));
+// gulp.task('server', () =>
+//   connect.server({
+//     root: config.dist,
+//     port: config.port,
+//     middleware: () => [history({})],
+//   }));
 
 gulp.task('build', [
   'compile-js',
   'compile-sass',
   'copy-3rdParty-styles',
   'copy-html',
-  'server',
 ]);
 
 gulp.task('watch', [
@@ -124,7 +123,7 @@ gulp.task('default', (done) => {
 
 gulp.task('server', () => {
   nodemon({
-    script: './src/api/app.js',
+    script: './src/app.js',
     exec: 'node --debug',
     ext: 'js',
     env: {
