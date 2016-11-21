@@ -2,7 +2,7 @@ import React from 'react';
 import PostRow from './PostRow';
 
 const PostTable = props => (
-  <table className="blog-extended-table__table"> 
+  <table className="blog-extended-table__table">
     <thead>
       <tr>
         <th>Nr</th>

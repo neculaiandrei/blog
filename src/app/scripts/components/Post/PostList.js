@@ -28,10 +28,10 @@ class PostList extends React.Component {
 
     const posts = this.filteredPosts.map(post => (
       <SummaryPost
-        key={post.id}
+        key={post._id}
         date={post.date}
         title={post.title}
-        link={`/post/${post.id}`}
+        link={`/post/${post._id}`}
       />
     ));
 

@@ -11,8 +11,8 @@ class ManagePosts extends React.Component {
     this.handleDelete = this.handleDelete.bind(this);
   }
 
-  handleDelete(id) {
-    const existingPost = this.props.posts.find(post => post.id === id);
+  handleDelete(_id) {
+    const existingPost = this.props.posts.find(post => post._id === _id);
 
     return this.props.actions.deletePost(existingPost);
   }

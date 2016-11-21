@@ -7,7 +7,7 @@ const FullPost = props => (
   <Post
     date={props.post.date}
     title={props.post.title}
-    link={`/post/${props.post.id}`}
+    link={`/post/${props.post._id}`}
   >
     <div className="blog-post__content">
       <Markdown source={props.post.content} />
@@ -17,21 +17,21 @@ const FullPost = props => (
 
 FullPost.propTypes = {
   post: React.PropTypes.shape({
-    id: React.PropTypes.string,
+    _id: React.PropTypes.string,
     title: React.PropTypes.string,
     date: React.PropTypes.string,
     content: React.PropTypes.string,
   }),
 };
 
-const getPostById = (posts, id) => {
-  const post = posts.filter(p => p.id === id);
+const getPostById = (posts, _id) => {
+  const post = posts.filter(p => p._id === _id);
   if (post.length > 0) {
     return post[0];
   }
 
   return {
-    id: '',
+    _id: '',
     title: '',
     date: '',
     content: '',

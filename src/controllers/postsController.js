@@ -24,16 +24,21 @@ const postsController = {
   },
 
   create: (req, res) => {
+    const minPostTitleLength = 6;
     const post = new Post();
     post.date = Date.now();
     post.title = req.body.title;
     post.content = req.body.content;
 
+    if (post.title.length < minPostTitleLength) {
+      res.sendStatus(500);
+    }
+
     post.save((err) => {
       if (err) {
         res.sendStatus(500);
       } else {
-        res.sendStatus(200);
+        res.json(post);
       }
     });
   },
@@ -54,7 +59,7 @@ const postsController = {
           if (ex) {
             res.sendStatus(500);
           } else {
-            res.sendStatus(200);
+            res.json(post);
           }
         });
       }

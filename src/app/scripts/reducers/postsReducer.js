@@ -7,11 +7,11 @@ export default function postsReducer(state = InitialState.posts, action) {
       return [...state, Object.assign({}, action.post)];
     case type.EDIT_POST_SUCCESS:
       return [
-        ...state.filter(post => post.id !== action.post.id),
+        ...state.filter(post => post._id !== action.post._id),
         Object.assign({}, action.post),
       ];
     case type.DELETE_POST_SUCCESS:
-      return [...state.filter(post => post.id !== action.post.id)];
+      return [...state.filter(post => post._id !== action.post._id)];
     case type.LOAD_POSTS_SUCCESS:
       return action.posts;
     default:

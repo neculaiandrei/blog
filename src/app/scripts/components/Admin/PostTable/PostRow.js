@@ -15,7 +15,7 @@ class PostRow extends React.Component {
 
   handleDelete() {
     this.setState({ deleting: true });
-    this.props.onDelete(this.props.post.id).then(() => {
+    this.props.onDelete(this.props.post._id).then(() => {
       this.setState({ deleting: false });
     });
   }
@@ -24,12 +24,12 @@ class PostRow extends React.Component {
     return (
       <tr>
         <td>{this.props.index}</td>
-        <td>{this.props.post.id}</td>
+        <td>{this.props.post._id}</td>
         <td>{this.props.post.title}</td>
         <td>
           <IconLink
             className="fa fa-pencil-square-o"
-            link={`/admin/post/${this.props.post.id}`}
+            link={`/admin/post/${this.props.post._id}`}
             isExternal={false}
           />
           &nbsp;&nbsp;&nbsp;
@@ -47,7 +47,7 @@ class PostRow extends React.Component {
 
 PostRow.propTypes = {
   post: React.PropTypes.shape({
-    id: React.PropTypes.string.isRequired,
+    _id: React.PropTypes.string.isRequired,
     title: React.PropTypes.string.isRequired,
   }),
   index: React.PropTypes.number.isRequired,

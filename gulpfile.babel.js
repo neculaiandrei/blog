@@ -6,10 +6,8 @@ import sourcemaps from 'gulp-sourcemaps';
 import source from 'vinyl-source-stream';
 import buffer from 'vinyl-buffer';
 import sass from 'gulp-sass';
-import connect from 'gulp-connect';
 import runSequence from 'run-sequence';
 import util from 'gulp-util';
-import history from 'connect-history-api-fallback';
 import nodemon from 'gulp-nodemon';
 
 const config = {
@@ -94,18 +92,12 @@ gulp.task('watch-html', () => {
   });
 });
 
-// gulp.task('server', () =>
-//   connect.server({
-//     root: config.dist,
-//     port: config.port,
-//     middleware: () => [history({})],
-//   }));
-
 gulp.task('build', [
   'compile-js',
   'compile-sass',
   'copy-3rdParty-styles',
   'copy-html',
+  'server',
 ]);
 
 gulp.task('watch', [
@@ -123,13 +115,13 @@ gulp.task('default', (done) => {
 
 gulp.task('server', () => {
   nodemon({
-    script: './src/app.js',
+    script: './src/server.js',
     exec: 'node --debug',
     ext: 'js',
     env: {
-      port: 11001,
+      port: config.port,
     },
-    ignore: ['./node_modules/**'],
+    ignore: ['node_modules/**', 'src/app/**', 'src/public/**'],
   })
   .on('restart', () => {
     util.log('Restarting server...');

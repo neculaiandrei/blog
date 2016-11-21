@@ -1,5 +1,4 @@
 const express = require('express');
-const path = require('path');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const config = require('./config');
@@ -17,8 +16,9 @@ const listen = () => {
   app.listen(config.port, () => console.log(`Running...${config.port}`));
 };
 
-app.use(express.static(path.join(__dirname, '..') + '/src/public'));
-app.set('views', path.join(__dirname, '..') + '/src/views');
+
+app.use(express.static(`${config.root}/src/public`));
+app.set('views', `${config.root}/src/views`);
 app.set('view engine', 'ejs');
 
 app.use(bodyParser.urlencoded({

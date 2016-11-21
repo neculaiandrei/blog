@@ -64,7 +64,7 @@ EditPost.propTypes = {
 };
 
 const mapStateToProps = (state, ownProps) => {
-  const existingPost = state.posts.find(post => post.id === ownProps.params.id);
+  const existingPost = state.posts.find(post => post._id === ownProps.params.id);
 
   return {
     post: existingPost,
