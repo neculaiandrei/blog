@@ -3,8 +3,11 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const post = new Schema({
+  _id: {
+    type: String,
+  },
   date: {
-    type: Date,
+    type: String,
   },
   title: {
     type: String,

@@ -12,6 +12,7 @@
   background: $white;
   line-height: $desktopHeaderHeight;
   transition: all $animationDuration $animationType;
+  z-index: 100;
 
   &__brandname {
     display: inline-block;

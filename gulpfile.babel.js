@@ -77,33 +77,16 @@ gulp.task('copy-3rdParty-styles', () => {
     .pipe(gulp.dest(config.dist + config.fonts.folder));
 });
 
-const copyHtml = () =>
-  gulp.src(`${config.src}/index.html`)
-    .pipe(gulp.dest(config.dist))
-    .on('end', () => {
-      util.log(util.colors.blue('Finished html'));
-    });
-
-gulp.task('copy-html', copyHtml);
-
-gulp.task('watch-html', () => {
-  watch(`${config.src}/index.html`, () => {
-    copyHtml();
-  });
-});
-
 gulp.task('build', [
   'compile-js',
   'compile-sass',
   'copy-3rdParty-styles',
-  'copy-html',
   'server',
 ]);
 
 gulp.task('watch', [
   'watch-js',
   'watch-sass',
-  'watch-html',
 ]);
 
 gulp.task('default', (done) => {

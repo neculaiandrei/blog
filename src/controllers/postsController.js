@@ -1,87 +1,40 @@
-const Post = require('../models/post');
+const postService = require('../services/postService');
 
 const postsController = {
   getAll: (req, res) => {
-    Post.find({}, (err, posts) => {
-      if (err) {
-        res.sendStatus(500);
-      } else {
-        res.json(posts);
-      }
-    });
+    postService.getAll()
+      .then(posts => res.json(posts))
+      .catch(() => res.sendStatus(500));
   },
 
   get: (req, res) => {
     const id = req.params.id;
 
-    Post.findById(id, (err, post) => {
-      if (err) {
-        res.sendStatus(500);
-      } else {
-        res.json(post);
-      }
-    });
+    postService.getById(id)
+      .then(post => res.json(post))
+      .catch(() => res.sendStatus(500));
   },
 
   create: (req, res) => {
-    const minPostTitleLength = 6;
-    const post = new Post();
-    post.date = Date.now();
-    post.title = req.body.title;
-    post.content = req.body.content;
-
-    if (post.title.length < minPostTitleLength) {
-      res.sendStatus(500);
-    }
-
-    post.save((err) => {
-      if (err) {
-        res.sendStatus(500);
-      } else {
-        res.json(post);
-      }
-    });
+    postService.create(req.body)
+      .then(post => res.json(post))
+      .catch(() => res.sendStatus(500));
   },
 
   update: (req, res) => {
     const id = req.params.id;
 
-    Post.findById(id, (err, post) => {
-      if (err) {
-        res.sendStatus(500);
-      } else {
-        Object.assign(post, {
-          title: req.body.title,
-          content: req.body.content,
-        });
-
-        post.save((ex) => {
-          if (ex) {
-            res.sendStatus(500);
-          } else {
-            res.json(post);
-          }
-        });
-      }
-    });
+    postService.update(id, req.body)
+      .then(post => res.json(post))
+      .catch(() => res.sendStatus(500));
   },
 
   delete: (req, res) => {
     const id = req.params.id;
 
-    Post.findById(id, (err, post) => {
-      if (err) {
-        res.sendStatus(500);
-      }
-
-      post.remove((ex) => {
-        if (ex) {
-          res.sendStatus(500);
-        } else {
-          res.sendStatus(200);
-        }
-      });
-    });
+    postService.delete(id)
+      .then(() => res.sendStatus(200))
+      .catch(() => res.sendStatus(500));
   },
 };
 
