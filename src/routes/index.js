@@ -1,9 +1,9 @@
-const postsRouter = require('./postsRoutes');
+import postsRouter from './api/postsRoutes';
+import appRouter from './appRoutes';
 
-module.exports = (app) => {
+const routes = (app) => {
   app.use('/api/posts', postsRouter);
-  app.get('/*', (req, res) => {
-    res.render('index');
-  });
+  app.use('/', appRouter);
 };
 
+export default routes;

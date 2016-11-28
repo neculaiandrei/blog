@@ -1,5 +1,5 @@
-const mongoose = require('mongoose');
-const Post = require('../models/post');
+import mongoose from 'mongoose';
+import Post from '../models/post';
 
 const postService = {
   getAll: () => new Promise((resolve, reject) => {
@@ -77,4 +77,4 @@ const postService = {
   }),
 };
 
-module.exports = postService;
+export default postService;

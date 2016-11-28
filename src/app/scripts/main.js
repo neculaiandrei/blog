@@ -2,15 +2,16 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import configureStore from './store/configureStore';
-import postsActions from './actions/postsActions';
-import Routes from './routes';
+import Router from './router';
 
-const store = configureStore();
-store.dispatch(postsActions.loadPosts());
+const initialState = window.__INITIAL_STATE__;
+const store = configureStore(initialState);
 
-ReactDOM.render(
-  <Provider store={store}>
-    <Routes />
-  </Provider>,
-  document.querySelector('.app')
-);
+window.onload = () => {
+  ReactDOM.render(
+    <Provider store={store}>
+      <Router />
+    </Provider>,
+    document.querySelector('#main')
+  );
+};

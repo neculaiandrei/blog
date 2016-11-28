@@ -1,4 +1,4 @@
-const postService = require('../services/postService');
+import postService from '../services/postService';
 
 const postsController = {
   getAll: (req, res) => {
@@ -38,4 +38,4 @@ const postsController = {
   },
 };
 
-module.exports = postsController;
+export default postsController;

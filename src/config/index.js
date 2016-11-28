@@ -1,7 +1,9 @@
-const path = require('path');
+import path from 'path';
 
-module.exports = {
+const config = {
   db: 'mongodb://localhost:27017/blog',
-  port: process.env.PORT,
+  port: process.env.PORT || 11921,
   root: path.join(__dirname, '../../'),
 };
+
+export default config;

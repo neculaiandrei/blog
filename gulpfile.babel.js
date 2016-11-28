@@ -81,7 +81,6 @@ gulp.task('build', [
   'compile-js',
   'compile-sass',
   'copy-3rdParty-styles',
-  'server',
 ]);
 
 gulp.task('watch', [
@@ -93,20 +92,5 @@ gulp.task('default', (done) => {
   runSequence('build', 'watch', () => {
     done();
     util.log(util.colors.blue('Finished'));
-  });
-});
-
-gulp.task('server', () => {
-  nodemon({
-    script: './src/server.js',
-    exec: 'node --debug',
-    ext: 'js',
-    env: {
-      port: config.port,
-    },
-    ignore: ['node_modules/**', 'src/app/**', 'src/public/**'],
-  })
-  .on('restart', () => {
-    util.log('Restarting server...');
   });
 });
