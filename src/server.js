@@ -17,8 +17,8 @@ const listen = () => {
 };
 
 
-app.use(express.static(`${config.root}/src/public`));
-app.set('views', `${config.root}/src/views`);
+app.use(express.static(`${config.root}/dist/public`));
+app.set('views', `${config.root}/dist/views`);
 app.set('view engine', 'ejs');
 
 app.use(bodyParser.urlencoded({

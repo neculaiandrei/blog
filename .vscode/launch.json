@@ -8,9 +8,9 @@
       "type": "node",
       "request": "launch",
       "name": "Launch Program",
-      "program": "${workspaceRoot}\\dist\\server.js",
+      "program": "${workspaceRoot}\\src\\server.js",
       "sourceMaps": true,
-      "outDir": "${workspaceRoot}\\src"
+      "outDir": "${workspaceRoot}\\dist"
     },
     {
       "type": "node",
@@ -19,8 +19,7 @@
       "port": 5858,
       "restart": true,
       "sourceMaps": true,
-      "outDir": "${workspaceRoot}\\dist",
-      "localRoot": "${workspaceRoot}"
+      "outDir": "${workspaceRoot}\\dist"
     }
   ]
 }
