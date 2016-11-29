@@ -1,4 +1,5 @@
 import gulp from 'gulp';
+import babel from 'gulp-babel';
 import browserify from 'browserify';
 import watchify from 'watchify';
 import watch from 'gulp-watch';
@@ -77,6 +78,29 @@ gulp.task('copy-3rdParty-styles', () => {
     .pipe(gulp.dest(config.dist + config.fonts.folder));
 });
 
+gulp.task('server-build', function () {
+  const stream = gulp.src(['./src/**/*.js', '!./src/public/**/*.js'])
+                   .pipe(sourcemaps.init())
+                   .pipe(babel({ presets: ['es2015'] }))
+                    .pipe(sourcemaps.write())
+                   .pipe(gulp.dest('dist'));
+  console.log('Finished');
+  return stream;
+});
+
+gulp.task('server-watch', ['server-build'], function () {
+  const stream = nodemon({
+    script: './dist/server.js',
+    exec: 'node --debug-brk',
+    ext: 'js',
+    watch: 'src',
+    tasks: ['server-build'],
+    ignore: ['node_modules/**', 'src/app/**', 'src/public/**'],
+  });
+
+  return stream;
+});
+
 gulp.task('build', [
   'compile-js',
   'compile-sass',
@@ -88,8 +112,9 @@ gulp.task('watch', [
   'watch-sass',
 ]);
 
+
 gulp.task('default', (done) => {
-  runSequence('build', 'watch', () => {
+  runSequence('build', 'watch', 'server-watch', () => {
     done();
     util.log(util.colors.blue('Finished'));
   });
