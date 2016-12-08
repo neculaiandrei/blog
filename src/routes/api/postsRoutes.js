@@ -12,4 +12,7 @@ postsRouter.route('/:id')
   .put(postsController.update)
   .delete(postsController.delete);
 
+postsRouter.route('/:id/pdf')
+  .get(postsController.getPdf);
+
 export default postsRouter;

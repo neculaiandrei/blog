@@ -34,6 +34,7 @@
     "gulp-sourcemaps": "^1.6.0",
     "gulp-util": "^3.0.7",
     "gulp-watch": "^4.3.9",
+    "markdown-pdf": "^7.0.0",
     "mongoose": "^4.6.8",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",

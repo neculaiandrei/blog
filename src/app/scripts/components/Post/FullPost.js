@@ -2,6 +2,7 @@ import React from 'react';
 import Markdown from 'react-markdown';
 import { connect } from 'react-redux';
 import Post from './Post';
+import IconLink from '../Common/IconLink';
 
 const FullPost = props => (
   <Post
@@ -11,6 +12,13 @@ const FullPost = props => (
   >
     <div className="blog-post__content">
       <Markdown source={props.post.content} />
+    </div>
+    <div className="blog-post__buttons">
+      <IconLink
+        className="fa fa-file-pdf-o fa-lg blog-fa-file-pdf-o"
+        link={`/api/posts/${props.post._id}/pdf`}
+        isExternal={true}
+      />
     </div>
   </Post>
 );

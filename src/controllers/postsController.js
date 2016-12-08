@@ -1,3 +1,4 @@
+import markdownPdf from 'markdown-pdf';
 import postService from '../services/postService';
 
 const postsController = {
@@ -34,6 +35,23 @@ const postsController = {
 
     postService.delete(id)
       .then(() => res.sendStatus(200))
+      .catch(() => res.sendStatus(500));
+  },
+
+  getPdf: (req, res) => {
+    const id = req.params.id;
+
+    postService.getById(id)
+      .then((post) => {
+        markdownPdf()
+          .from
+          .string(post.content)
+          .to
+          .buffer(undefined, (otherParam, buffer) => {
+            res.type('application/pdf');
+            res.end(buffer, 'binary');
+          });
+      })
       .catch(() => res.sendStatus(500));
   },
 };
