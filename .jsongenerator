@@ -1,0 +1,8 @@
+[
+  '{{repeat(10, 15)}}',
+  {
+    title:  '{{lorem(3, "words")}}',
+    content: '{{lorem(4, "paragraphs")}}',
+    date: '{{date(new Date(2016, 0, 1), new Date())}}'
+  }
+]
