@@ -50,7 +50,7 @@ class PostRow extends React.Component {
 PostRow.propTypes = {
   post: React.PropTypes.shape({
     _id: React.PropTypes.string.isRequired,
-    dateCreated: React.PropTypes.string.isRequired,
+    dateCreated: React.PropTypes.any.isRequired, // eslint-disable-line react/forbid-prop-types
     title: React.PropTypes.string.isRequired,
     isPublished: React.PropTypes.bool.isRequired,
   }),

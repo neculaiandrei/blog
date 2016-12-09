@@ -27,7 +27,7 @@ FullPost.propTypes = {
   post: React.PropTypes.shape({
     _id: React.PropTypes.string,
     title: React.PropTypes.string,
-    dateCreated: React.PropTypes.string,
+    dateCreated: React.PropTypes.any, // eslint-disable-line react/forbid-prop-types
     content: React.PropTypes.string,
   }),
 };

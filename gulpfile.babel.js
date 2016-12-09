@@ -54,6 +54,11 @@ gulp.task('watch-sass', () => {
   watch('./src/app/styles/*.scss', compileSass);
 });
 
+gulp.task('copy-favicon', () => {
+  gulp.src('./src/app/favicon.ico')
+    .pipe(gulp.dest('./dist/public'));
+});
+
 gulp.task('copy-3rdParty-styles', () => {
   gulp.src('node_modules/font-awesome/css/font-awesome.css')
     .pipe(gulp.dest('./dist/public/styles'));
@@ -98,6 +103,7 @@ gulp.task('server-watch', () =>
 gulp.task('build', [
   'compile-js',
   'compile-sass',
+  'copy-favicon',
   'copy-3rdParty-styles',
   'server-build',
 ]);

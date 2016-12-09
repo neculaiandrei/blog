@@ -16,7 +16,7 @@ const Post = props => (
 
 Post.propTypes = {
   children: React.PropTypes.node,
-  dateCreated: React.PropTypes.string.isRequired,
+  dateCreated: React.PropTypes.any.isRequired, // eslint-disable-line react/forbid-prop-types
   title: React.PropTypes.string.isRequired,
   link: React.PropTypes.string.isRequired,
 };

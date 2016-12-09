@@ -3,10 +3,6 @@ import Post from '../models/post';
 const postService = {
   getAll: () => new Promise((resolve, reject) => {
     Post.find({}, (error, posts) => {
-      posts.forEach((post) => {
-        post._id = post._id.toString();
-      });
-
       if (error) {
         reject(error);
       } else {
@@ -17,7 +13,6 @@ const postService = {
 
   getById: id => new Promise((resolve, reject) => {
     Post.findById(id, (error, post) => {
-      post._id = post._id.toString();
       if (error) {
         reject(error);
       } else {
@@ -30,6 +25,7 @@ const postService = {
     const minPostTitleLength = 6;
     const post = new Post();
     post.dateCreated = Date.now();
+    post.isPublished = false;
     post.title = fields.title;
     post.content = fields.content;
 

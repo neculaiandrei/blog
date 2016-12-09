@@ -25,8 +25,12 @@ const appRouter = (req, res, next) => {
       }
 
       postService.getAll().then((posts) => {
-        const plainPosts = [];
-        posts.map(post => plainPosts.push(post.toObject()));
+        const plainPosts = posts.map((post) => {
+          const plainPost = post.toObject();
+          plainPost._id = plainPost._id.toString();
+
+          return plainPost;
+        });
 
         const store = configureStore({
           posts: plainPosts,

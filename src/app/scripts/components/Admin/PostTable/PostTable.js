@@ -15,7 +15,7 @@ const PostTable = props => (
     <tbody>
       {props.posts.map((post, index) =>
         <PostRow
-          key={index}
+          key={post._id}
           post={post}
           index={index}
           onDelete={props.onDelete}
