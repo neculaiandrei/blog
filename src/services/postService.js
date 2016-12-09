@@ -1,9 +1,12 @@
-import mongoose from 'mongoose';
 import Post from '../models/post';
 
 const postService = {
   getAll: () => new Promise((resolve, reject) => {
     Post.find({}, (error, posts) => {
+      posts.forEach((post) => {
+        post._id = post._id.toString();
+      });
+
       if (error) {
         reject(error);
       } else {
@@ -14,6 +17,7 @@ const postService = {
 
   getById: id => new Promise((resolve, reject) => {
     Post.findById(id, (error, post) => {
+      post._id = post._id.toString();
       if (error) {
         reject(error);
       } else {
@@ -25,7 +29,6 @@ const postService = {
   create: fields => new Promise((resolve, reject) => {
     const minPostTitleLength = 6;
     const post = new Post();
-    post._id = mongoose.Types.ObjectId().toString();
     post.dateCreated = Date.now();
     post.title = fields.title;
     post.content = fields.content;
