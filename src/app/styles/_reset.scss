@@ -64,8 +64,12 @@ a {
     cursor: auto;
 }
 
-em, b, strong {
+b, strong {
 	font-weight: 700;
+}
+
+em {
+  font-style: italic;
 }
 
 input {
