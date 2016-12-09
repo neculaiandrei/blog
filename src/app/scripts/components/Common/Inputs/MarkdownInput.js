@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import Markdown from 'react-markdown';
 import ExpandCollapseButton from '../Buttons/ExpandCollapseButton';
 
-class TextAreaInput extends React.Component {
+class MarkdownInput extends React.Component {
   constructor(props) {
     super(props);
 
@@ -67,15 +67,15 @@ class TextAreaInput extends React.Component {
   }
 }
 
-TextAreaInput.propTypes = {
+MarkdownInput.propTypes = {
   name: React.PropTypes.string.isRequired,
   text: React.PropTypes.string.isRequired,
   placeholder: React.PropTypes.string,
   onChange: React.PropTypes.func,
 };
 
-TextAreaInput.defaultProps = {
+MarkdownInput.defaultProps = {
   placeholder: '',
 };
 
-export default TextAreaInput;
+export default MarkdownInput;

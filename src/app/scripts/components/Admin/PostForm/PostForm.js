@@ -1,7 +1,7 @@
 import React from 'react';
 import PostFormRow from './PostFormRow';
 import TextInput from '../../Common/Inputs/TextInput';
-import TextAreaInput from '../../Common/Inputs/TextAreaInput';
+import MarkdownInput from '../../Common/Inputs/MarkdownInput';
 import Label from '../../Common/Inputs/Label';
 import AsyncSaveButton from '../../Common/Buttons/AsyncSaveButton';
 
@@ -22,7 +22,7 @@ const PostForm = props => (
       >
         Text
       </Label>
-      <TextAreaInput
+      <MarkdownInput
         text={props.post.content}
         name="content"
         onChange={props.onChange}

@@ -6,8 +6,9 @@ const PostTable = props => (
     <thead>
       <tr>
         <th>Nr</th>
-        <th>Creat</th>
         <th>Titlu</th>
+        <th>Creat</th>
+        <th>Status</th>
         <th />
       </tr>
     </thead>

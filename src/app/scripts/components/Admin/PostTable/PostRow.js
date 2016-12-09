@@ -25,8 +25,9 @@ class PostRow extends React.Component {
     return (
       <tr>
         <td>{this.props.index}</td>
-        <td>{moment(this.props.post.dateCreated).format('DD/MM/YYYY')}</td>
         <td>{this.props.post.title}</td>
+        <td>{moment(this.props.post.dateCreated).format('DD/MM/YYYY')}</td>
+        <td>{this.props.post.isPublished ? 'Publicat' : 'Draft'}</td>
         <td>
           <IconLink
             className="fa fa-pencil-square-o"
@@ -51,6 +52,7 @@ PostRow.propTypes = {
     _id: React.PropTypes.string.isRequired,
     dateCreated: React.PropTypes.string.isRequired,
     title: React.PropTypes.string.isRequired,
+    isPublished: React.PropTypes.bool.isRequired,
   }),
   index: React.PropTypes.number.isRequired,
   onDelete: React.PropTypes.func.isRequired,
