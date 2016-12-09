@@ -26,7 +26,7 @@ const postService = {
     const minPostTitleLength = 6;
     const post = new Post();
     post._id = mongoose.Types.ObjectId().toString();
-    post.date = Date.now();
+    post.dateCreated = Date.now();
     post.title = fields.title;
     post.content = fields.content;
 

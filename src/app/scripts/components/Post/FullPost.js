@@ -6,7 +6,7 @@ import IconLink from '../Common/IconLink';
 
 const FullPost = props => (
   <Post
-    date={props.post.date}
+    dateCreated={props.post.dateCreated}
     title={props.post.title}
     link={`/post/${props.post._id}`}
   >
@@ -27,7 +27,7 @@ FullPost.propTypes = {
   post: React.PropTypes.shape({
     _id: React.PropTypes.string,
     title: React.PropTypes.string,
-    date: React.PropTypes.string,
+    dateCreated: React.PropTypes.string,
     content: React.PropTypes.string,
   }),
 };
@@ -41,7 +41,7 @@ const getPostById = (posts, _id) => {
   return {
     _id: '',
     title: '',
-    date: '',
+    dateCreated: '',
     content: '',
   };
 };

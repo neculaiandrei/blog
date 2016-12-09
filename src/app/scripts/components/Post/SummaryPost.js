@@ -4,7 +4,7 @@ import IconLink from '../Common/IconLink';
 
 const SummaryPost = props => (
   <Post
-    date={props.date}
+    dateCreated={props.dateCreated}
     title={props.title}
     link={props.link}
   >
@@ -20,7 +20,7 @@ const SummaryPost = props => (
 
 SummaryPost.propTypes = {
   _id: React.PropTypes.string.isRequired,
-  date: React.PropTypes.string.isRequired,
+  dateCreated: React.PropTypes.string.isRequired,
   title: React.PropTypes.string.isRequired,
   link: React.PropTypes.string.isRequired,
 };

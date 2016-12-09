@@ -38,7 +38,7 @@ class EditPost extends React.Component {
   render() {
     return (
       <div>
-        <h1>Edit Post</h1>
+        <h1>Editează postare</h1>
         <PostForm
           post={this.state.post}
           saving={this.state.saving}

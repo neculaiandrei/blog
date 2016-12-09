@@ -37,7 +37,7 @@ class SearchBar extends React.Component {
           name={this.props.name}
           active={this.state.active}
           text={this.props.text}
-          placeholder="Cauta"
+          placeholder="Caută"
           showLabel={false}
           onChange={this.props.onChange}
           onFocus={this.handleFocus}

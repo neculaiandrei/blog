@@ -3,6 +3,15 @@
   {
     title:  '{{lorem(3, "words")}}',
     content: '{{lorem(4, "paragraphs")}}',
-    date: '{{date(new Date(2016, 0, 1), new Date())}}'
+    isPublished: '{{bool()}}',
+    dateCreated: '{{date(new Date(2016, 1, 1), new Date(2016, 5, 1))}}',
+    datePublished: '{{date(new Date(2016, 6, 1), new Date())}}'
   }
 ]
+
+// Run this in the database.
+//db.getCollection('posts').find().forEach(function (doc) {
+//   doc.dateCreated = new Date(doc.dateCreated);
+//   doc.datePublished = new Date(doc.datePublished);
+//   db.getCollection('posts').save(doc);
+//});

@@ -8,7 +8,7 @@ import AsyncSaveButton from '../../Common/Buttons/AsyncSaveButton';
 const PostForm = props => (
   <div className="blog-post-form">
     <PostFormRow>
-      <Label name="title">Title</Label>
+      <Label name="title">Titlu</Label>
       <TextInput
         text={props.post.title}
         name="title"
@@ -20,7 +20,7 @@ const PostForm = props => (
         name="content"
         verticalAlign={true}
       >
-        Content
+        Text
       </Label>
       <TextAreaInput
         text={props.post.content}

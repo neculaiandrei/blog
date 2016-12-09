@@ -20,7 +20,7 @@ class ManagePosts extends React.Component {
   render() {
     return (
       <div>
-        <h2>Posts</h2>
+        <h2>Postări</h2>
         <ExtendedPostTable
           posts={this.props.posts}
           onDelete={this.handleDelete}

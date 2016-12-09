@@ -6,9 +6,9 @@ const AsyncSaveButton = props => (
     iconClassName="fa fa-floppy-o"
     onClick={props.onSave}
     pending={props.pending}
-    pendingText="Saving"
+    pendingText="Se salvează"
   >
-    Save
+    Salvează
   </AsyncTextIconButton>
 );
 

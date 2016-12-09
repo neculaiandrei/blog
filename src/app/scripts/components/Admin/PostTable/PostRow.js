@@ -1,6 +1,7 @@
 import React from 'react';
 import IconLink from '../../Common/IconLink';
 import AsyncIconButton from '../../Common/Buttons/AsyncIconButton';
+import moment from '../../../utils/moment';
 
 class PostRow extends React.Component {
   constructor(props) {
@@ -15,7 +16,7 @@ class PostRow extends React.Component {
 
   handleDelete() {
     this.setState({ deleting: true });
-    this.props.onDelete(this.props.post._id).then(() => {
+    this.props.onDelete(this.props.post._id).catch(() => {
       this.setState({ deleting: false });
     });
   }
@@ -24,7 +25,7 @@ class PostRow extends React.Component {
     return (
       <tr>
         <td>{this.props.index}</td>
-        <td>{this.props.post._id}</td>
+        <td>{moment(this.props.post.dateCreated).format('DD/MM/YYYY')}</td>
         <td>{this.props.post.title}</td>
         <td>
           <IconLink
@@ -48,6 +49,7 @@ class PostRow extends React.Component {
 PostRow.propTypes = {
   post: React.PropTypes.shape({
     _id: React.PropTypes.string.isRequired,
+    dateCreated: React.PropTypes.string.isRequired,
     title: React.PropTypes.string.isRequired,
   }),
   index: React.PropTypes.number.isRequired,

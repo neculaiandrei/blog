@@ -30,7 +30,7 @@ class PostList extends React.Component {
       <SummaryPost
         key={post._id}
         _id={post._id}
-        date={post.date}
+        dateCreated={post.dateCreated}
         title={post.title}
         link={`/post/${post._id}`}
       />

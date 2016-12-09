@@ -58,7 +58,7 @@ class TextAreaInput extends React.Component {
             expanded={this.state.previewExpanded}
             onClick={this.handleTogglePreview}
           >
-            {this.state.previewExpanded ? 'Hide Preview' : 'Show Preview'}
+            {this.state.previewExpanded ? 'Arată Preview' : 'Ascunde Preview'}
           </ExpandCollapseButton>
         </div>
         {preview}

@@ -42,7 +42,7 @@ class AddPost extends React.Component {
   render() {
     return (
       <div>
-        <h1>Add Post</h1>
+        <h1>Adaugă postare</h1>
         <PostForm
           post={this.state.post}
           saving={this.state.saving}
@@ -53,7 +53,7 @@ class AddPost extends React.Component {
           iconClassName="fa fa-angle-left"
           onClick={browserHistory.goBack}
         >
-          Back
+          Înapoi
         </TextIconButton>
       </div>
     );

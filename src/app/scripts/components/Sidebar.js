@@ -4,7 +4,7 @@ import IconLink from './Common/IconLink';
 const Sidebar = () => (
   <div className="blog-sidebar">
     <IconLink
-      link="https://www.facebook.com/JoiDimineata-1712416545640091/"
+      link="https://www.facebook.com/"
       isExternal={true}
       className="fa fa-lg fa-facebook blog-fa-facebook"
     />
@@ -19,7 +19,7 @@ const Sidebar = () => (
       className="fa fa-lg fa-envelope-o blog-fa-envelope-o"
     />
     <IconLink
-      link="https://github.com"
+      link="https://github.com/neculaiandrei/blog"
       isExternal={true}
       className="fa fa-lg fa-github blog-fa-github"
     />

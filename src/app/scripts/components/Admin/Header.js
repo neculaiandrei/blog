@@ -5,12 +5,12 @@ import HeaderContainer from '../Common/HeaderContainer';
 const Header = () => (
   <HeaderContainer>
     <div className="blog-header__brandname">
-      <Link to="/"><em>Joi</em> Dimineata</Link>
+      <Link to="/"><strong>Joi</strong> Dimineața</Link>
       |
       <Link to="/admin/posts">Admin</Link>
     </div>
     <div className="blog-header__meta">
-      Nu te ia nimeni in serios atunci cand vorbesti de boala ta.
+      Un blog destul de mic.
     </div>
   </HeaderContainer>
 );
