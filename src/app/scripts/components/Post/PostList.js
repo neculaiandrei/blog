@@ -23,7 +23,6 @@ class PostList extends React.Component {
 
   render() {
     this.filteredPosts = this.props.posts
-                            .filter(post => post.isPublished)
                             .filter(post => this.state.searchText === undefined
                             || post.title.indexOf(this.state.searchText) !== -1);
 
@@ -54,8 +53,18 @@ PostList.propTypes = {
   posts: React.PropTypes.arrayOf(React.PropTypes.object),
 };
 
-const mapStateToProps = state => ({
-  posts: state.posts,
-});
+const getPublishedPostsByTag = (posts, tag) =>
+  posts.filter(post => post.isPublished)
+       .filter(post => tag === undefined
+            || post.tags.indexOf(tag) !== -1);
+
+const mapStateToProps = (state, ownProps) => {
+  const tag = ownProps.params.tag;
+  const posts = getPublishedPostsByTag(state.posts, tag);
+
+  return {
+    posts,
+  };
+};
 
 export default connect(mapStateToProps)(PostList);

@@ -8,6 +8,7 @@ const Routes = (
   <Route path="/" component={App}>
     <IndexRedirect to="/posts" />
     <Route path="/posts" component={PostList} />
+    <Route path="/posts/:tag" component={PostList} />
     <Route path="/post/:id" component={FullPost} />
   </Route>
 );
