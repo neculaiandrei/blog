@@ -3,7 +3,7 @@ import { browserHistory } from 'react-router';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import PostForm from './PostForm/PostForm';
-import TextIconButton from '../Common/Buttons/TextIconButton';
+import BackButton from '../Common/Buttons/BackButton';
 import postsActions from '../../actions/postsActions';
 
 class AddPost extends React.Component {
@@ -49,12 +49,7 @@ class AddPost extends React.Component {
           onChange={this.handleChange}
           onSave={this.handleSave}
         />
-        <TextIconButton
-          iconClassName="fa fa-angle-left"
-          onClick={browserHistory.goBack}
-        >
-          Înapoi
-        </TextIconButton>
+        <BackButton />
       </div>
     );
   }

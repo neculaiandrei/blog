@@ -6,7 +6,7 @@ import IconLink from '../Common/IconLink';
 
 const FullPost = props => (
   <Post
-    dateCreated={props.post.dateCreated}
+    datePublished={props.post.datePublished}
     title={props.post.title}
     link={`/post/${props.post._id}`}
   >
@@ -27,13 +27,13 @@ FullPost.propTypes = {
   post: React.PropTypes.shape({
     _id: React.PropTypes.string,
     title: React.PropTypes.string,
-    dateCreated: React.PropTypes.any, // eslint-disable-line react/forbid-prop-types
+    datePublished: React.PropTypes.any, // eslint-disable-line react/forbid-prop-types
     content: React.PropTypes.string,
   }),
 };
 
-const getPostById = (posts, _id) => {
-  const post = posts.filter(p => p._id === _id);
+const getPublishedPostById = (posts, _id) => {
+  const post = posts.filter(p => p._id === _id && p.isPublished);
   if (post.length > 0) {
     return post[0];
   }
@@ -41,14 +41,14 @@ const getPostById = (posts, _id) => {
   return {
     _id: '',
     title: '',
-    dateCreated: '',
+    datePublished: '',
     content: '',
   };
 };
 
 const mapStateToProps = (state, ownProps) => {
   const postId = ownProps.params.id;
-  const post = getPostById(state.posts, postId);
+  const post = getPublishedPostById(state.posts, postId);
 
   return {
     post,

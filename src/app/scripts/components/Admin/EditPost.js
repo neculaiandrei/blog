@@ -3,7 +3,7 @@ import { browserHistory } from 'react-router';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import PostForm from './PostForm/PostForm';
-import TextIconButton from '../Common/Buttons/TextIconButton';
+import BackButton from '../Common/Buttons/BackButton';
 import postsActions from '../../actions/postsActions';
 
 class EditPost extends React.Component {
@@ -20,7 +20,13 @@ class EditPost extends React.Component {
 
   handleChange(event) {
     const field = event.target.name;
-    const value = event.target.value;
+    let value;
+
+    if (event.target.type === 'checkbox') {
+      value = event.target.checked;
+    } else {
+      value = event.target.value;
+    }
     const post = Object.assign({}, this.state.post);
 
     post[field] = value;
@@ -45,12 +51,7 @@ class EditPost extends React.Component {
           onChange={this.handleChange}
           onSave={this.handleSave}
         />
-        <TextIconButton
-          iconClassName="fa fa-angle-left"
-          onClick={browserHistory.goBack}
-        >
-          Back
-        </TextIconButton>
+        <BackButton />
       </div>
     );
   }

@@ -24,10 +24,11 @@ const postService = {
   create: fields => new Promise((resolve, reject) => {
     const minPostTitleLength = 6;
     const post = new Post();
-    post.dateCreated = Date.now();
-    post.isPublished = false;
     post.title = fields.title;
     post.content = fields.content;
+    post.isPublished = false;
+    post.dateCreated = Date.now();
+    post.datePublished = undefined;
 
     if (post.title.length < minPostTitleLength) {
       reject('Be serious with the title');
@@ -48,7 +49,12 @@ const postService = {
         Object.assign(post, {
           title: fields.title,
           content: fields.content,
+          isPublished: fields.isPublished,
         });
+
+        if (post.isPublished) {
+          post.datePublished = Date.now();
+        }
 
         post.save((error) => {
           if (error) {

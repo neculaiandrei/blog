@@ -23,6 +23,7 @@ class PostList extends React.Component {
 
   render() {
     this.filteredPosts = this.props.posts
+                            .filter(post => post.isPublished)
                             .filter(post => this.state.searchText === undefined
                             || post.title.indexOf(this.state.searchText) !== -1);
 
@@ -30,7 +31,7 @@ class PostList extends React.Component {
       <SummaryPost
         key={post._id}
         _id={post._id}
-        dateCreated={post.dateCreated}
+        datePublished={post.datePublished}
         title={post.title}
         link={`/post/${post._id}`}
       />

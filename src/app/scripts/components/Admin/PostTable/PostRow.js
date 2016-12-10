@@ -27,7 +27,11 @@ class PostRow extends React.Component {
         <td>{this.props.index}</td>
         <td>{this.props.post.title}</td>
         <td>{moment(this.props.post.dateCreated).format('DD/MM/YYYY')}</td>
-        <td>{this.props.post.isPublished ? 'Publicat' : 'Draft'}</td>
+        <td>{this.props.post.isPublished ?
+          `Publicat\
+          ${moment(this.props.post.datePublished).format('DD/MM/YYYY')}` :
+          'Draft'
+        }</td>
         <td>
           <IconLink
             className="fa fa-pencil-square-o"
@@ -51,6 +55,7 @@ PostRow.propTypes = {
   post: React.PropTypes.shape({
     _id: React.PropTypes.string.isRequired,
     dateCreated: React.PropTypes.any.isRequired, // eslint-disable-line react/forbid-prop-types
+    datePublished: React.PropTypes.any.isRequired, // eslint-disable-line react/forbid-prop-types
     title: React.PropTypes.string.isRequired,
     isPublished: React.PropTypes.bool.isRequired,
   }),

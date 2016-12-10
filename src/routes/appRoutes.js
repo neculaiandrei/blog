@@ -45,9 +45,16 @@ const appRouter = (req, res, next) => {
 
         const state = store.getState();
         const serializedState = JSON.stringify(state);
-        const markup = renderToString(component);
 
-        res.render('index', { markup, serializedState });
+        try {
+          const markup = renderToString(component);
+
+          res.render('index', { markup, serializedState });
+        } catch (renderError) {
+          console.log(renderError);
+
+          next(error);
+        }
       });
     });
   } else {
