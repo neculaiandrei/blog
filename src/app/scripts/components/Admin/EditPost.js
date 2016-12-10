@@ -18,15 +18,7 @@ class EditPost extends React.Component {
     this.handleSave = this.handleSave.bind(this);
   }
 
-  handleChange(event) {
-    const field = event.target.name;
-    let value;
-
-    if (event.target.type === 'checkbox') {
-      value = event.target.checked;
-    } else {
-      value = event.target.value;
-    }
+  handleChange(field, value) {
     const post = Object.assign({}, this.state.post);
 
     post[field] = value;
@@ -44,8 +36,9 @@ class EditPost extends React.Component {
   render() {
     return (
       <div>
-        <h1>Editează postare</h1>
+        <h2>Editează postare</h2>
         <PostForm
+          isNew={false}
           post={this.state.post}
           saving={this.state.saving}
           onChange={this.handleChange}

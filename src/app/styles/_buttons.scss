@@ -1,5 +1,13 @@
 @import 'globals';
 
+.blog-text-icon-button {
+  &:hover,
+  &--o {
+    background: $orange;
+    border-color: $orange;
+  }
+}
+
 .blog-icon-button {
   background: $grey;
   border: 1px solid $grey;

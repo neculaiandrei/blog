@@ -26,6 +26,7 @@ const postService = {
     const post = new Post();
     post.title = fields.title;
     post.content = fields.content;
+    post.tags = fields.tags;
     post.isPublished = false;
     post.dateCreated = Date.now();
     post.datePublished = undefined;
@@ -49,6 +50,7 @@ const postService = {
         Object.assign(post, {
           title: fields.title,
           content: fields.content,
+          tags: fields.tags,
           isPublished: fields.isPublished,
         });
 

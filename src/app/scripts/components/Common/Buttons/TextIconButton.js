@@ -1,9 +1,10 @@
 import React from 'react';
+import classNames from 'classnames';
 import IconButton from './IconButton';
 
 const TextIconButton = props => (
   <IconButton
-    className={props.className}
+    className={classNames('blog-text-icon-button ', props.className)}
     iconClassName={props.iconClassName}
     disabled={props.disabled}
     onClick={props.onClick}

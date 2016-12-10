@@ -9,8 +9,16 @@ class TextInput extends React.Component {
       active: false,
     };
 
+    this.handleChange = this.handleChange.bind(this);
     this.handleFocus = this.handleFocus.bind(this);
     this.handleBlur = this.handleBlur.bind(this);
+  }
+
+  handleChange(event) {
+    const name = event.target.name;
+    const value = event.target.value;
+
+    this.props.onChange(name, value);
   }
 
   handleFocus() {
@@ -27,7 +35,7 @@ class TextInput extends React.Component {
         name={this.props.name}
         active={this.state.active}
         text={this.props.text}
-        onChange={this.props.onChange}
+        onChange={this.handleChange}
         onFocus={this.handleFocus}
         onBlur={this.handleBlur}
       />

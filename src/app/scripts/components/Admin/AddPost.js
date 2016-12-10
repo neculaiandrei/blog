@@ -14,6 +14,7 @@ class AddPost extends React.Component {
       post: {
         title: '',
         content: '',
+        tags: [],
       },
       saving: false,
     };
@@ -22,9 +23,7 @@ class AddPost extends React.Component {
     this.handleSave = this.handleSave.bind(this);
   }
 
-  handleChange(event) {
-    const field = event.target.name;
-    const value = event.target.value;
+  handleChange(field, value) {
     const post = Object.assign({}, this.state.post);
 
     post[field] = value;
@@ -42,8 +41,9 @@ class AddPost extends React.Component {
   render() {
     return (
       <div>
-        <h1>Adaugă postare</h1>
+        <h2>Adaugă postare</h2>
         <PostForm
+          isNew={true}
           post={this.state.post}
           saving={this.state.saving}
           onChange={this.handleChange}

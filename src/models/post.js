@@ -9,6 +9,9 @@ const post = new Schema({
   content: {
     type: String,
   },
+  tags: {
+    type: [String],
+  },
   isPublished: {
     type: Boolean,
   },

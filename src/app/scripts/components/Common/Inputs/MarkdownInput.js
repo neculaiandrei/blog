@@ -12,9 +12,17 @@ class MarkdownInput extends React.Component {
       previewExpanded: false,
     };
 
+    this.handleChange = this.handleChange.bind(this);
     this.handleFocus = this.handleFocus.bind(this);
     this.handleBlur = this.handleBlur.bind(this);
     this.handleTogglePreview = this.handleTogglePreview.bind(this);
+  }
+
+  handleChange(event) {
+    const name = event.target.name;
+    const value = event.target.value;
+
+    this.props.onChange(name, value);
   }
 
   handleFocus() {
@@ -49,7 +57,7 @@ class MarkdownInput extends React.Component {
           value={this.props.text}
           placeholder={this.props.placeholder}
           spellCheck={false}
-          onChange={this.props.onChange}
+          onChange={this.handleChange}
           onFocus={this.handleFocus}
           onBlur={this.handleBlur}
         />

@@ -1,26 +1,25 @@
 import React from 'react';
+import ReactTagsInput from 'react-tagsinput';
 
-class Checkbox extends React.Component {
+class TagsInput extends React.Component {
   constructor(props) {
     super(props);
 
     this.handleChange = this.handleChange.bind(this);
   }
 
-  handleChange(event) {
-    const name = event.target.name;
-    const value = event.target.checked;
+  handleChange(value) {
+    const name = this.props.name;
 
     this.props.onChange(name, value);
   }
 
   render() {
     return (
-      <div className="blog-checkbox">
-        <input
-          type="checkbox"
+      <div className="blog-tags-input">
+        <ReactTagsInput
           name={this.props.name}
-          checked={this.props.checked}
+          value={this.props.tags}
           onChange={this.handleChange}
         />
       </div>
@@ -28,10 +27,10 @@ class Checkbox extends React.Component {
   }
 }
 
-Checkbox.propTypes = {
+TagsInput.propTypes = {
   name: React.PropTypes.string.isRequired,
-  checked: React.PropTypes.bool.isRequired,
+  tags: React.PropTypes.arrayOf(React.PropTypes.string).isRequired,
   onChange: React.PropTypes.func.isRequired,
 };
 
-export default Checkbox;
+export default TagsInput;
