@@ -40,6 +40,8 @@ const PostForm = props => (
       <TagsInput
         name="tags"
         tags={props.post.tags}
+        canDelete={true}
+        canClick={false}
         onChange={props.onChange}
       />
     </PostFormRow>

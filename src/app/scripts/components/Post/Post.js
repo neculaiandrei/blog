@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, browserHistory } from 'react-router';
+import TagsInput from '../Common/Inputs/TagsInput';
 import moment from '../../utils/moment';
 
 const Post = (props) => {
@@ -14,16 +15,14 @@ const Post = (props) => {
         <Link to={`/post/${props.post._id}`}>{props.post.title}</Link>
       </h2>
       <div className="blog-post__tags">
-        {props.post.tags.map((tag, index) => (
-          <button
-            key={index}
-            className="react-tagsinput-tag"
-            style={{ cursor: 'pointer' }}
-            onClick={() => goToTag(tag)}
-          >
-            {tag}
-          </button>
-        ))}
+        <TagsInput
+          name="tags"
+          tags={props.post.tags}
+          canDelete={false}
+          canClick={true}
+          onClick={goToTag}
+          showOnlyTags={true}
+        />
       </div>
       {props.children}
     </div>
