@@ -27,9 +27,9 @@ class PostRow extends React.Component {
         <td>{this.props.index}</td>
         <td>{this.props.post.title}</td>
         <td>{moment(this.props.post.dateCreated).format('DD/MM/YYYY')}</td>
-        <td>{this.props.post.isPublished ?
-          `Publicat\
-          ${moment(this.props.post.datePublished).format('DD/MM/YYYY')}` :
+        <td>
+          {this.props.post.isPublished ?
+          `Publicat la ${moment(this.props.post.datePublished).format('DD/MM/YYYY')}` :
           'Draft'
         }</td>
         <td>

@@ -21,6 +21,7 @@ class TagsInput extends React.Component {
           name={this.props.name}
           value={this.props.tags}
           onChange={this.handleChange}
+          maxTags={5}
         />
       </div>
     );

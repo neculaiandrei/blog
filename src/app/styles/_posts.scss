@@ -11,8 +11,12 @@
 
   &__title {
     margin-top: 5px;
-    margin-bottom: 25px;
     font-family: $headingFont;
+    margin-bottom: 5px;
+  }
+
+  &__tags {
+    margin-bottom: 15px;
   }
   
   &__content {

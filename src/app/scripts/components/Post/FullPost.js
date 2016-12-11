@@ -6,9 +6,7 @@ import IconLink from '../Common/IconLink';
 
 const FullPost = props => (
   <Post
-    datePublished={props.post.datePublished}
-    title={props.post.title}
-    link={`/post/${props.post._id}`}
+    post={props.post}
   >
     <div className="blog-post__content">
       <Markdown source={props.post.content} />
@@ -26,8 +24,6 @@ const FullPost = props => (
 FullPost.propTypes = {
   post: React.PropTypes.shape({
     _id: React.PropTypes.string,
-    title: React.PropTypes.string,
-    datePublished: React.PropTypes.any, // eslint-disable-line react/forbid-prop-types
     content: React.PropTypes.string,
   }),
 };
