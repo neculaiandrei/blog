@@ -5,6 +5,10 @@ const Schema = mongoose.Schema;
 const post = new Schema({
   title: {
     type: String,
+    minLenght: [6, 'Be serious with the title'],
+  },
+  slug: {
+    type: String,
   },
   content: {
     type: String,

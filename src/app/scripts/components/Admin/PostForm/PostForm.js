@@ -18,6 +18,14 @@ const PostForm = props => (
       />
     </PostFormRow>
     <PostFormRow>
+      <Label name="slug">Slug</Label>
+      <TextInput
+        text={props.post.slug}
+        name="slug"
+        onChange={props.onChange}
+      />
+    </PostFormRow>
+    <PostFormRow>
       <Label
         name="content"
         verticalAlign={true}
@@ -73,9 +81,10 @@ PostForm.propTypes = {
   isNew: React.PropTypes.bool.isRequired,
   post: React.PropTypes.shape({
     title: React.PropTypes.string.isRequired,
+    slug: React.PropTypes.string.isRequired,
     content: React.PropTypes.string.isRequired,
     tags: React.PropTypes.array.isRequired,
-    isPublished: React.PropTypes.bool.isRequired,
+    isPublished: React.PropTypes.bool,
   }).isRequired,
   onChange: React.PropTypes.func.isRequired,
   onSave: React.PropTypes.func.isRequired,

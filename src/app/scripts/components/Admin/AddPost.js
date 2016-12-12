@@ -2,6 +2,7 @@ import React from 'react';
 import { browserHistory } from 'react-router';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import slug from 'slug';
 import PostForm from './PostForm/PostForm';
 import BackButton from '../Common/Buttons/BackButton';
 import postsActions from '../../actions/postsActions';
@@ -13,6 +14,7 @@ class AddPost extends React.Component {
     this.state = {
       post: {
         title: '',
+        slug: '',
         content: '',
         tags: [],
       },
@@ -27,6 +29,11 @@ class AddPost extends React.Component {
     const post = Object.assign({}, this.state.post);
 
     post[field] = value;
+
+    if (field === 'title') {
+      post.slug = slug(post.title, '_');
+    }
+
     this.setState({
       post,
     });

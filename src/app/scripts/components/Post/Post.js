@@ -12,7 +12,7 @@ const Post = (props) => {
         <span>{moment(props.post.datePublished).format('DD MMMM YYYY')}</span>
       </div>
       <h2 className="blog-post__title">
-        <Link to={`/post/${props.post._id}`}>{props.post.title}</Link>
+        <Link to={`/post/${props.post.slug}`}>{props.post.title}</Link>
       </h2>
       <div className="blog-post__tags">
         <TagsInput
@@ -32,7 +32,7 @@ const Post = (props) => {
 Post.propTypes = {
   children: React.PropTypes.node,
   post: React.PropTypes.shape({
-    _id: React.PropTypes.string.isRequired,
+    slug: React.PropTypes.string.isRequired,
     title: React.PropTypes.string.isRequired,
     tags: React.PropTypes.array.isRequired,
     datePublished: React.PropTypes.any.isRequired, // // eslint-disable-line react/forbid-prop-types

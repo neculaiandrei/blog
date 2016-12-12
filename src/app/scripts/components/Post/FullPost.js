@@ -28,8 +28,8 @@ FullPost.propTypes = {
   }),
 };
 
-const getPublishedPostById = (posts, _id) => {
-  const post = posts.filter(p => p._id === _id && p.isPublished);
+const getPublishedPostBySlug = (posts, slug) => {
+  const post = posts.filter(p => p.slug === slug && p.isPublished);
   if (post.length > 0) {
     return post[0];
   }
@@ -37,14 +37,15 @@ const getPublishedPostById = (posts, _id) => {
   return {
     _id: '',
     title: '',
+    slug: '',
     datePublished: '',
     content: '',
   };
 };
 
 const mapStateToProps = (state, ownProps) => {
-  const postId = ownProps.params.id;
-  const post = getPublishedPostById(state.posts, postId);
+  const slug = ownProps.params.slug;
+  const post = getPublishedPostBySlug(state.posts, slug);
 
   return {
     post,
