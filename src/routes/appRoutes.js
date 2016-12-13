@@ -59,7 +59,7 @@ const appRouter = (req, res, next) => {
     });
   } else {
     res.render('index', {
-      markup: undefined,
+      markup: 'Loading...',
       serializedState: undefined,
     });
   }
