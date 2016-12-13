@@ -10,6 +10,7 @@ import sass from 'gulp-sass';
 import runSequence from 'run-sequence';
 import util from 'gulp-util';
 import nodemon from 'gulp-nodemon';
+import path from 'path';
 
 const bundler = browserify({
   entries: './src/app/scripts/main.js',
@@ -17,6 +18,7 @@ const bundler = browserify({
   cache: {},
   packageCache: {},
 }).plugin(watchify, { ignoreWatch: ['**/node_modules/**'] })
+  .ignore('unicode/category/So')
   .transform('babelify', { presets: ['es2015', 'react'] });
 
 const bundle = () => {
