@@ -4,7 +4,7 @@ import IconButton from './IconButton';
 
 const TextIconButton = props => (
   <IconButton
-    className={classNames('blog-text-icon-button ', props.className)}
+    className={classNames('blog-text-icon-button', props.className)}
     iconClassName={props.iconClassName}
     disabled={props.disabled}
     onClick={props.onClick}

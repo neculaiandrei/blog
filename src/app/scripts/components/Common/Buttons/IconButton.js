@@ -4,7 +4,7 @@ import classNames from 'classnames';
 const IconButton = (props) => {
   return (
     <button
-      className={classNames('blog-icon-button ', props.className)}
+      className={classNames('blog-icon-button', props.className)}
       disabled={props.disabled}
       onClick={props.onClick}
     >

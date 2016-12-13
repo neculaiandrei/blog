@@ -39,14 +39,14 @@ class MarkdownInput extends React.Component {
 
   render() {
     const textInputClass = classNames(
-      'blog-textarea-input',
+      'blog-markdown-input',
       {
-        'blog-textarea-input--active': this.state.active,
+        'blog-markdown-input--active': this.state.active,
       });
 
     const preview = this.state.previewExpanded ? (
       <Markdown
-        className="blog-textarea-input__preview"
+        className="blog-markdown-input__preview"
         source={this.props.text}
       />) : undefined;
 
@@ -61,7 +61,7 @@ class MarkdownInput extends React.Component {
           onFocus={this.handleFocus}
           onBlur={this.handleBlur}
         />
-        <div className="blog-textarea-input__toggle-preview">
+        <div className="blog-markdown-input__toggle-preview">
           <ExpandCollapseButton
             expanded={this.state.previewExpanded}
             onClick={this.handleTogglePreview}

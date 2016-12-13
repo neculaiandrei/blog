@@ -1,6 +1,8 @@
 import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import Page from '../Page/Page';
+import PageHeader from '../Page/PageHeader';
 import ExtendedPostTable from './PostTable/ExtendedPostTable';
 import postsActions from '../../actions/postsActions';
 
@@ -19,13 +21,15 @@ class ManagePosts extends React.Component {
 
   render() {
     return (
-      <div>
-        <h2>Postări</h2>
+      <Page>
+        <PageHeader>
+          <h2>Postări</h2>
+        </PageHeader>
         <ExtendedPostTable
           posts={this.props.posts}
           onDelete={this.handleDelete}
         />
-      </div>
+      </Page>
     );
   }
 }

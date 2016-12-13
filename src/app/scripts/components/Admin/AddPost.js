@@ -3,6 +3,8 @@ import { browserHistory } from 'react-router';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import slug from 'slug';
+import Page from '../Page/Page';
+import PageHeader from '../Page/PageHeader';
 import PostForm from './PostForm/PostForm';
 import BackButton from '../Common/Buttons/BackButton';
 import postsActions from '../../actions/postsActions';
@@ -47,8 +49,10 @@ class AddPost extends React.Component {
 
   render() {
     return (
-      <div>
-        <h2>Adaugă postare</h2>
+      <Page>
+        <PageHeader>
+          <h2>Adaugă postare</h2>
+        </PageHeader>
         <PostForm
           isNew={true}
           post={this.state.post}
@@ -57,7 +61,7 @@ class AddPost extends React.Component {
           onSave={this.handleSave}
         />
         <BackButton />
-      </div>
+      </Page>
     );
   }
 }

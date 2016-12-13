@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link, browserHistory } from 'react-router';
+import Page from '../Page/Page';
+import PageHeader from '../Page/PageHeader';
 import TagsInput from '../Common/Inputs/TagsInput';
 import moment from '../../utils/moment';
 
@@ -7,25 +9,27 @@ const Post = (props) => {
   const goToTag = tag => browserHistory.push(`/posts/${tag}`);
 
   return (
-    <div className="blog-post">
-      <div className="blog-post__date">
-        <span>{moment(props.post.datePublished).format('DD MMMM YYYY')}</span>
-      </div>
-      <h2 className="blog-post__title">
-        <Link to={`/post/${props.post.slug}`}>{props.post.title}</Link>
-      </h2>
-      <div className="blog-post__tags">
-        <TagsInput
-          name="tags"
-          tags={props.post.tags}
-          canDelete={false}
-          canClick={true}
-          onClick={goToTag}
-          showOnlyTags={true}
-        />
-      </div>
+    <Page className="blog-post">
+      <PageHeader>
+        <div className="blog-post__date">
+          <span>{moment(props.post.datePublished).format('DD MMMM YYYY')}</span>
+        </div>
+        <h2 className="blog-post__title">
+          <Link to={`/post/${props.post.slug}`}>{props.post.title}</Link>
+        </h2>
+        <div className="blog-post__tags">
+          <TagsInput
+            name="tags"
+            tags={props.post.tags}
+            canDelete={false}
+            canClick={true}
+            onClick={goToTag}
+            showOnlyTags={true}
+          />
+        </div>
+      </PageHeader>
       {props.children}
-    </div>
+    </Page>
   );
 };
 
