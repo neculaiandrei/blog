@@ -1,0 +1,84 @@
+@import '../globals';
+
+.blog-text-icon-button {
+  background: $grey;
+  color: $white;
+  border: 1px solid $grey;
+
+  &:hover {
+    background: $orange;
+    border-color: $orange;
+  }
+}
+
+.blog-icon-button {
+  background: transparent;
+  color: $black;
+
+  &__separator {
+    border-left: 1px solid $white;
+  }
+}
+
+.blog-text-input {
+  input {
+    border-bottom: 1px solid $grey;
+    color: $grey;
+  }
+
+  &--active input {
+    border-bottom-color: $black;
+    color: $black;
+
+    &::-webkit-input-placeholder {
+      color: $black;
+    }
+
+    &:-moz-placeholder {
+      color: $black;
+      opacity:  1;
+    }
+
+    &::-moz-placeholder {
+      color: $black;
+      opacity:  1;
+    }
+
+    &:-ms-input-placeholder {
+      color: $black;
+    }
+  }
+}
+
+.blog-markdown-input {
+  textarea {
+    border: 1px solid $grey;
+    color: $grey;
+  }
+
+  &--active textarea {
+    border: 1px solid $black;
+    color: $black;
+  }
+}
+
+.blog-search-bar {
+  color: $grey;
+}
+
+.blog-header {
+  color: $grey;
+  background: $white;
+
+  .blog-header__brandname {
+    color: $orange;
+  }
+
+  .blog-header__meta {
+    color: $grey;
+  }
+}
+
+.blog-post .blog-post__date {
+  color: $grey;
+}

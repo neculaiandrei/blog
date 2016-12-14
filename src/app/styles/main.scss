@@ -12,13 +12,16 @@
 
 body {
   margin: 0 $desktopHorizontalMargin;
-  background: $white;
   font-family: $bodyFont;
   transition: all $animationDuration $animationType;
 
   @media only screen and (max-width: $mobileBreakpoint) {
     margin: 0 $mobileHorizontalMargin;
   }
+}
+
+.body--light-theme {
+  background: $white;
 }
 
 .blog-content {

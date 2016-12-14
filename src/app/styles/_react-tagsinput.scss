@@ -2,17 +2,9 @@
 
 .react-tagsinput {
   display: inline-block;
-  background-color: $white;
   overflow: hidden;
 
-  &--focused {
-    border-color: $black;
-  }
-
   &-tag {
-    background-color: $orange;
-    border: none;
-    color: $white;
     display: inline-block;
     font-family: sans-serif;
     font-size: 13px;
@@ -40,9 +32,6 @@
   }
 
   &-input {
-    background: transparent;
-    border: 0;
-    color: $grey;
     font-family: sans-serif;
     font-size: 13px;
     font-weight: 400;
@@ -53,8 +42,28 @@
     width: 80px;
   }
 
-  &-input:focused {
-    color: $black;
+  &--light-theme {
+    background-color: $white;
+
+    .react-tagsinput--focused {
+      border-color: $black;
+    }
+
+    .react-tagsinput-tag {
+      background-color: $orange;
+      border: none;
+      color: $white;
+    }
+
+    .react-tagsinput-input {
+      background: transparent;
+      border: 0;
+      color: $grey;
+    }
+
+    .react-tagsinput-input:focused {
+      color: $black;
+    }
   }
 
 }

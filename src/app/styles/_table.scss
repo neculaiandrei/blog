@@ -1,51 +1,57 @@
 @import 'globals';
 
 .blog-extended-table {
-    position: relative;
+  position: relative;
 
-    &__table {
-      width: 100%;
-      table-layout: fixed;
-      text-align: left;
+  &__table {
+    width: 100%;
+    table-layout: fixed;
+    text-align: left;
 
+    thead {
+      font-family: $headingFont;
+      text-transform: uppercase; 
+    }
+
+    td:last-child {
+      text-align: right;
+    }
+
+    th, td {
+      padding: 20px 10px;
+    }
+  }
+
+  &__search {
+    display: inline-block;
+    font-size: $h3;
+  }
+
+  &__add {
+    display: inline-block;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-size: $h3;
+  }
+
+  &--light-theme {
+    .blog-extended-table__table {
       thead {
         color: $orange;
-        font-family: $headingFont;
-        text-transform: uppercase; 
       }
 
-      td:last-child {
-        text-align: right;
+      tr:hover {
+        background-color: $grey;
       }
 
-      th, td {
-        padding: 20px 10px;
-      }
-
-      tbody { 
-        tr:hover {
-          background-color: $grey;
-        }
-
-        i {
-          &:hover {
-            color: $orange;
-          }
-        }
+      i:hover {
+        color: $orange;
       }
     }
 
-    &__search {
-      display: inline-block;
-      font-size: $h3;
-    }
-
-    &__add {
-      display: inline-block;
-      position: absolute;
-      right: 10px;
-      top: 10px;
+    .blog-extended-table__add {
       color: $grey;
-      font-size: $h3;
     }
+  }
 }

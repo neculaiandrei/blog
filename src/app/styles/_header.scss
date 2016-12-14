@@ -8,8 +8,6 @@
   height: $desktopHeaderHeight;
   width: calc(100% - (2 * #{$desktopHorizontalMargin}));
   padding-bottom: $headerPaddingBottom;
-  color: $grey;
-  background: $white;
   line-height: $desktopHeaderHeight;
   transition: all $animationDuration $animationType;
   z-index: 100;
@@ -18,7 +16,6 @@
     display: inline-block;
     font-family: $headingFont;
     font-size: $h1;
-    color: $orange;
   }
 
   &__meta {
@@ -27,7 +24,6 @@
     top: calc(#{$desktopHeaderHeight} - 10px);
     left: 0;
     font-size: 0.9em;
-    color: $grey;
     line-height: $h5;
   }
 
@@ -41,7 +37,6 @@
     &__meta {
       top: calc(#{$mobileHeaderHeight});
     }
-  }
-  
+  }  
 }
 
