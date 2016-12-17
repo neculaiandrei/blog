@@ -41,29 +41,4 @@
     padding: 5px;
     width: 80px;
   }
-
-  &--light-theme {
-    background-color: $white;
-
-    .react-tagsinput--focused {
-      border-color: $black;
-    }
-
-    .react-tagsinput-tag {
-      background-color: $orange;
-      border: none;
-      color: $white;
-    }
-
-    .react-tagsinput-input {
-      background: transparent;
-      border: 0;
-      color: $grey;
-    }
-
-    .react-tagsinput-input:focused {
-      color: $black;
-    }
-  }
-
 }

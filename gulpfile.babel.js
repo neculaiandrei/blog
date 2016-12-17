@@ -41,7 +41,7 @@ gulp.task('compile-js', bundle);
 gulp.task('watch-js', () => bundler.on('update', bundle));
 
 const compileSass = () =>
-  gulp.src('./src/app/styles/*.scss')
+  gulp.src('./src/app/styles/**/*.scss')
     .pipe(sourcemaps.init(true))
     .pipe(sass().on('error', sass.logError))
     .pipe(sourcemaps.write())
@@ -53,7 +53,7 @@ const compileSass = () =>
 gulp.task('compile-sass', compileSass);
 
 gulp.task('watch-sass', () => {
-  watch('./src/app/styles/*.scss', compileSass);
+  watch('./src/app/styles/**/*.scss', compileSass);
 });
 
 gulp.task('copy-favicon', () => {

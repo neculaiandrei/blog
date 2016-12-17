@@ -20,10 +20,6 @@ body {
   }
 }
 
-.body--light-theme {
-  background: $white;
-}
-
 .blog-content {
   margin-top: calc(1.4 * #{$desktopHeaderHeight});
   padding: 0 10%;

@@ -34,24 +34,4 @@
     top: 10px;
     font-size: $h3;
   }
-
-  &--light-theme {
-    .blog-extended-table__table {
-      thead {
-        color: $orange;
-      }
-
-      tr:hover {
-        background-color: $grey;
-      }
-
-      i:hover {
-        color: $orange;
-      }
-    }
-
-    .blog-extended-table__add {
-      color: $grey;
-    }
-  }
 }

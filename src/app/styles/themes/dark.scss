@@ -1,0 +1,170 @@
+@import '../globals';
+
+.blog-icon-button {
+  border: none;
+  background: transparent;
+  color: $white;
+
+  &__separator {
+    border-left: 1px solid $black;
+  }
+}
+
+.blog-text-icon-button {
+  background: $grey;
+  color: $black;
+  border: 1px solid $grey;
+
+  &:hover {
+    background: $orange;
+    border-color: $orange;
+  }
+}
+
+.blog-label {
+  color: $grey;
+}
+
+.blog-text-input {
+  input {
+    border-bottom: 1px solid $grey;
+    background: $black;
+    color: $grey;
+  }
+
+  &--active input {
+    border-bottom-color: $white;
+    color: $white;
+
+    &::-webkit-input-placeholder {
+      color: $white;
+    }
+
+    &:-moz-placeholder {
+      color: $white;
+      opacity:  1;
+    }
+
+    &::-moz-placeholder {
+      color: $white;
+      opacity:  1;
+    }
+
+    &:-ms-input-placeholder {
+      color: $white;
+    }
+  }
+}
+
+.blog-markdown-input {
+  textarea {
+    background: $black;
+    border: 1px solid $grey;
+    color: $grey;
+  }
+
+  &--active textarea {
+    border: 1px solid $white;
+    color: $white;
+  }
+
+  &__preview {
+    color: $grey;
+  }
+}
+
+.blog-post-form .blog-tags-input .react-tagsinput {
+  border: 1px solid $grey;
+}
+
+.blog-search-bar {
+  color: $grey;
+}
+
+.blog-header {
+  color: $grey;
+  background: $black;
+
+  .blog-header__brandname {
+    color: $orange;
+  }
+
+  .blog-header__meta {
+    color: $grey;
+  }
+}
+
+.blog-post {
+  &__date {
+    color: $grey;
+  }
+
+  &__content {
+    color: $grey;
+  }
+}
+
+.react-tagsinput {
+  background-color: $black;
+
+  &--focused {
+    border-color: $white;
+  }
+
+  &-tag {
+    background-color: $orange;
+    border: none;
+    color: $white;
+  }
+
+  &-input {
+    background: transparent;
+    border: 0;
+    color: $grey;
+  }
+
+  &-input:focused {
+    color: $white;
+  }
+}
+
+.blog-extended-table {
+  &__table {
+    thead tr{
+      color: $orange;
+    }
+
+    tr {
+      color: $grey;
+    }
+
+    tr:hover {
+      background-color: $grey;
+      color: $white;
+
+      i {
+        color: white;
+      }
+
+      i:hover {
+        color: $orange;
+      }
+    }
+
+    i {
+      color: $grey;
+    }
+  }
+
+  &__add {
+    color: $grey;
+  }
+}
+
+.blog-page__header h2 {
+  color: $white;
+}
+
+body {
+  background: $black;
+}
