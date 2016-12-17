@@ -133,26 +133,27 @@
     thead tr{
       color: $orange;
     }
+    tbody {
+      tr {
+        color: $grey;
+      }
 
-    tr {
-      color: $grey;
-    }
+      tr:hover {
+        background-color: $grey;
+        color: $white;
 
-    tr:hover {
-      background-color: $grey;
-      color: $white;
+        i {
+          color: white;
+        }
 
+        i:hover {
+          color: $orange;
+        }
+      }
+      
       i {
-        color: white;
-      }
-
-      i:hover {
-        color: $orange;
-      }
-    }
-
-    i {
-      color: $grey;
+        color: $grey;
+      } 
     }
   }
 
