@@ -4,7 +4,7 @@ import TextIconButton from './TextIconButton';
 const AsyncTextIconButton = (props) => {
   const text = props.pending ? props.pendingText : props.children;
   const iconClassName = props.pending ? 'fa fa-circle-o-notch fa-spin fa-fw' : props.iconClassName;
-  const textIconClassName = props.pending ? 'blog-text-icon-button--o' : '';
+  const textIconClassName = props.pending ? 'blog-text-icon-button--pending' : '';
 
   return (
     <TextIconButton

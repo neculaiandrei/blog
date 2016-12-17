@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 import HeaderContainer from '../Common/HeaderContainer';
+import ThemePallete from '../Common/ThemePallete';
 
 const Header = () => (
   <HeaderContainer>
@@ -11,6 +12,9 @@ const Header = () => (
     </div>
     <div className="blog-header__meta">
       Un blog destul de mic.
+    </div>
+    <div className="blog-header__theme">
+      <ThemePallete />
     </div>
   </HeaderContainer>
 );
