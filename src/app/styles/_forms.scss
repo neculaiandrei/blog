@@ -9,6 +9,7 @@
     margin: 10px 0;
     border: none;
     font-size: inherit;
+    transition: all $animationDuration $animationType;
     
     &:focus {
       outline: none;
@@ -26,6 +27,7 @@
     font-family: inherit;
     font-size: inherit;
     outline: none;
+    transition: all $animationDuration $animationType;
   }
 
   &__preview {
