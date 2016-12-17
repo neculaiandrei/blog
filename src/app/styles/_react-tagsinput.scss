@@ -3,6 +3,7 @@
 .react-tagsinput {
   display: inline-block;
   overflow: hidden;
+  transition: all $animationDuration $animationType;
 
   &-tag {
     display: inline-block;

@@ -27,6 +27,13 @@
     line-height: $h5;
   }
 
+  &__theme {
+    position: absolute;
+    display: inline-block;
+    right: 0;
+    top: 2em;
+  }
+
   @media only screen and (max-width: $mobileBreakpoint) {
     height: $mobileHeaderHeight;
     width: calc(100% - (2 * #{$mobileHorizontalMargin}));
