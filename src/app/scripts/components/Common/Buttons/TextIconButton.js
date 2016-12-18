@@ -11,7 +11,7 @@ const TextIconButton = props => (
   >
     <span>
       &nbsp;
-      <span className="blog-icon-button__separator" />
+      <span className="blog-text-icon-button__separator" />
       &nbsp;
       {props.children}
     </span>

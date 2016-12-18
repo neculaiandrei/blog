@@ -4,16 +4,16 @@
   border: none;
   background: transparent;
   color: $white;
-
-  &__separator {
-    border-left: 1px solid $black;
-  }
 }
 
 .blog-text-icon-button {
-  background: $white;
-  color: $black;
+  background: $black;
+  color: $white;
   border: 1px solid $white;
+
+  &__separator {
+    border-left: 1px solid $white;
+  }
 
   &:hover {
     background: $orange;
@@ -93,6 +93,32 @@
 
 .blog-post-form .blog-tags-input .react-tagsinput {
   border: 1px solid $black;
+
+  &--focused {
+    border-color: $black;
+    
+    input {
+      color: $black;
+    }
+    
+    input::-webkit-input-placeholder {
+      color: $black;
+    }
+
+    input:-moz-placeholder {
+      color: $black;
+      opacity:  1;
+    }
+
+    input::-moz-placeholder {
+      color: $black;
+      opacity:  1;
+    }
+
+    input:-ms-input-placeholder {
+      color: $black;
+    }
+  }
 }
 
 .blog-search-bar {
@@ -124,10 +150,6 @@
 
 .react-tagsinput {
   background-color: $grey;
-
-  &--focused {
-    border-color: $white;
-  }
 
   &-tag {
     background-color: $orange;
