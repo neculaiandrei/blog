@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { browserHistory } from 'react-router';
 import { Provider } from 'react-redux';
+import Mousetrap from 'mousetrap';
 import configureStore from './store/configureStore';
 import Router from './router';
 import postsActions from './actions/postsActions';
@@ -20,3 +22,7 @@ window.onload = () => {
     document.querySelector('#main')
   );
 };
+
+Mousetrap.bind('ctrl+shift+a', () => {
+  browserHistory.push('/admin/posts');
+});

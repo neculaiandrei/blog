@@ -18,8 +18,14 @@ class ThemePallete extends React.Component {
     };
 
     if (typeof document !== 'undefined') {
-      document.querySelector('#theme')
-              .setAttribute('href', getThemeHref(this.state.currentTheme));
+      const themeContainer = document.querySelector('#theme');
+      const existingThemeHref = themeContainer.getAttribute('href');
+
+      const currentThemeHref = getThemeHref(this.state.currentTheme);
+
+      if (existingThemeHref !== currentThemeHref) {
+        themeContainer.setAttribute('href', currentThemeHref);
+      }
     }
 
     this.handleChange = this.handleChange.bind(this);
